@@ -42,19 +42,6 @@ categoryNamecontroller.getStickers = function(req, res) {
   );
 };
 
-categoryNamecontroller.readDir = function(req, res) {
-  fs.readdir(pathname, function(err, data) {
-    console.log("path name------------",pathname)
-    console.log("----------------name",data)
-  
-    let responseData = data.map((singleCategory) => { return({ name: singleCategory }) });
 
-    console.log("items==========================",data );
-    console.log("err", err);
-    return res
-      .status(200)
-      .json({ message: "Show name of category", result: { category: responseData } });
-  });
-};
 
 module.exports = categoryNamecontroller;

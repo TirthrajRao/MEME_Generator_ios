@@ -60,6 +60,10 @@ import styles from "./editimgstyles";
       "keyboardDidShow",
       this._keyboardDidShow
     );
+    this.keyboardDidHideListener = Keyboard.addListener(
+      "keyboardDidHide",
+      this._keyboardDidHide
+    );
    
    BackHandler.addEventListener("hardwareBackPress", this._handleBackPress);
   }
@@ -69,7 +73,7 @@ import styles from "./editimgstyles";
       AndroidKeyboardAdjust.setAdjustResize();
     }
     this.keyboardDidShowListener.remove();
-    
+    this.keyboardDidHideListener.remove();
     BackHandler.removeEventListener("hardwareBackPress", this._handleBackPress);
 
   }

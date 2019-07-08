@@ -17,7 +17,7 @@ var categoryNameRoutes = require('./routes/categoryName_routes');
 
 app.use('/api', categoryNameRoutes)
 app.use('/api', categoryNameRoutes)
-app.use('/api', categoryNameRoutes)
+
 
 
 
