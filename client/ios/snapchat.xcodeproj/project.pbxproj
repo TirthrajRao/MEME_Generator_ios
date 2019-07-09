@@ -5,7 +5,6 @@
 	};
 	objectVersion = 46;
 	objects = {
-
 /* Begin PBXBuildFile section */
 		00C302E51ABCBA2D00DB3ED1 /* libRCTActionSheet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302AC1ABCB8CE00DB3ED1 /* libRCTActionSheet.a */; };
 		00C302E71ABCBA2D00DB3ED1 /* libRCTGeolocation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302BA1ABCB90400DB3ED1 /* libRCTGeolocation.a */; };
@@ -70,6 +69,30 @@
 		F31AEBCFE87144A8B6018D87 /* libRNShare.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FE8C894FD1BC4B3D8DD6624F /* libRNShare.a */; };
 		F400626EAA1A4024B3679852 /* FontAwesome5_Brands.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E988B33813744B508097C05D /* FontAwesome5_Brands.ttf */; };
 		F7FF54DE92DA44518A5B838A /* Entypo.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C1448AE9058344D181CB6BAA /* Entypo.ttf */; };
+		08C234EA69A94E4E88A398C4 /* AlexBrush-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C5A6249F33BE4328961F5CEE /* AlexBrush-Regular.ttf */; };
+		D7B2263442A5459B837B9E46 /* MountainsofChristmas-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7F9310E3C18D46249503C7D2 /* MountainsofChristmas-Bold.ttf */; };
+		EEC7E48955D24084B7D5C977 /* MountainsofChristmas-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E0D04FDD649F4D149E5F6C20 /* MountainsofChristmas-Regular.ttf */; };
+		8DEAA9E98C534500B1637385 /* MountainsofChristmas-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A63908BFBE5F4B28812BDE38 /* MountainsofChristmas-Bold.ttf */; };
+		E029FECEB3124DDAAE67B829 /* MountainsofChristmas-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8A506C0C41EB4FD6BE3C35AC /* MountainsofChristmas-Regular.ttf */; };
+		8AAD6F3F62A842AD80306C41 /* Barriecito-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 442686C03DD24D7AA580E03A /* Barriecito-Regular.ttf */; };
+		82AD761F618C4028AF1FA188 /* DMSerifText-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CFC44C97201A4FFDB6D70664 /* DMSerifText-Italic.ttf */; };
+		CBE01EC5FD8C472AB6A9B46E /* DMSerifText-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8CD4E99C05904935891598F3 /* DMSerifText-Regular.ttf */; };
+		CBD2357F0F0D404DB9B791C5 /* JosefinSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CA81ED92F33E4E42B8B0E7F6 /* JosefinSans-Bold.ttf */; };
+		9EB2D7644A114F9A83962846 /* JosefinSans-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E64B071C139C4C1EBB658947 /* JosefinSans-BoldItalic.ttf */; };
+		C57EB532167E42D9860FDF42 /* JosefinSans-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E45B03F20E584ECDAA50630F /* JosefinSans-Italic.ttf */; };
+		53D668B3E8854D5EB56A1FD4 /* JosefinSans-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C4D0D51FA0324F65B178E91D /* JosefinSans-Light.ttf */; };
+		6E88A14C3F62451292056A88 /* JosefinSans-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 78278CFB3330466EAEBC615B /* JosefinSans-LightItalic.ttf */; };
+		B02869702991415AB5A6B51D /* JosefinSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3104F3F79F3749ACA1D25487 /* JosefinSans-Regular.ttf */; };
+		92C99D45E163443EA664D9F4 /* JosefinSans-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F141C976877340D2887B39F9 /* JosefinSans-SemiBold.ttf */; };
+		382477F9A24E4753A9BE5FEB /* JosefinSans-SemiBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E9C54FA879984140AE85EF12 /* JosefinSans-SemiBoldItalic.ttf */; };
+		FFBCE8D51AA84A0885A2E5CD /* JosefinSans-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C0A19D76D32245E59ED4CA29 /* JosefinSans-Thin.ttf */; };
+		E4282306D53D48108986B1D7 /* JosefinSans-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C0B11481CC1749DB87E50676 /* JosefinSans-ThinItalic.ttf */; };
+		70CA3C0ABA284912A9B915E5 /* Anton-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 19EC3881E4A946FE8D3F2CF3 /* Anton-Regular.ttf */; };
+		F79196EAD5D44E24B9F5D704 /* Lobster-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9891E55C1A804DD4B02EA42F /* Lobster-Regular.ttf */; };
+		025AEE32154C4FEAA850484D /* AbrilFatface-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D0EF7DB59605499081A8E5F4 /* AbrilFatface-Regular.ttf */; };
+		1FB6CEC5E4A248C2B1FE883D /* Righteous-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1FFB9420E69A4AC098FB5B65 /* Righteous-Regular.ttf */; };
+		EA15790EDF7B42138EDB0D3A /* PermanentMarker-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AAE19334725749BBAAB347BB /* PermanentMarker-Regular.ttf */; };
+		998B4B5154944A6CA5680C58 /* ConcertOne-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4238CDB11FF546EBA50EB030 /* ConcertOne-Regular.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -526,6 +549,30 @@
 		F5DB477C40BB44DE832335ED /* MaterialIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = MaterialIcons.ttf; path = "../node_modules/native-base/Fonts/MaterialIcons.ttf"; sourceTree = "<group>"; };
 		F781C9A93E334A15B1AC96A8 /* EvilIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = EvilIcons.ttf; path = "../node_modules/native-base/Fonts/EvilIcons.ttf"; sourceTree = "<group>"; };
 		FE8C894FD1BC4B3D8DD6624F /* libRNShare.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNShare.a; sourceTree = "<group>"; };
+		C5A6249F33BE4328961F5CEE /* AlexBrush-Regular.ttf */ = {isa = PBXFileReference; name = "AlexBrush-Regular.ttf"; path = "../assets/fonts/AlexBrush-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		7F9310E3C18D46249503C7D2 /* MountainsofChristmas-Bold.ttf */ = {isa = PBXFileReference; name = "MountainsofChristmas-Bold.ttf"; path = "../assets/fonts/MountainsofChristmas-Bold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		E0D04FDD649F4D149E5F6C20 /* MountainsofChristmas-Regular.ttf */ = {isa = PBXFileReference; name = "MountainsofChristmas-Regular.ttf"; path = "../assets/fonts/MountainsofChristmas-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		A63908BFBE5F4B28812BDE38 /* MountainsofChristmas-Bold.ttf */ = {isa = PBXFileReference; name = "MountainsofChristmas-Bold.ttf"; path = "../assets/fonts/MountainsofChristmas/MountainsofChristmas-Bold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		8A506C0C41EB4FD6BE3C35AC /* MountainsofChristmas-Regular.ttf */ = {isa = PBXFileReference; name = "MountainsofChristmas-Regular.ttf"; path = "../assets/fonts/MountainsofChristmas/MountainsofChristmas-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		442686C03DD24D7AA580E03A /* Barriecito-Regular.ttf */ = {isa = PBXFileReference; name = "Barriecito-Regular.ttf"; path = "../assets/fonts/Barriecito/Barriecito-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		CFC44C97201A4FFDB6D70664 /* DMSerifText-Italic.ttf */ = {isa = PBXFileReference; name = "DMSerifText-Italic.ttf"; path = "../assets/fonts/DMSeriText/DMSerifText-Italic.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		8CD4E99C05904935891598F3 /* DMSerifText-Regular.ttf */ = {isa = PBXFileReference; name = "DMSerifText-Regular.ttf"; path = "../assets/fonts/DMSeriText/DMSerifText-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		CA81ED92F33E4E42B8B0E7F6 /* JosefinSans-Bold.ttf */ = {isa = PBXFileReference; name = "JosefinSans-Bold.ttf"; path = "../assets/fonts/JosefinSans/JosefinSans-Bold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		E64B071C139C4C1EBB658947 /* JosefinSans-BoldItalic.ttf */ = {isa = PBXFileReference; name = "JosefinSans-BoldItalic.ttf"; path = "../assets/fonts/JosefinSans/JosefinSans-BoldItalic.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		E45B03F20E584ECDAA50630F /* JosefinSans-Italic.ttf */ = {isa = PBXFileReference; name = "JosefinSans-Italic.ttf"; path = "../assets/fonts/JosefinSans/JosefinSans-Italic.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		C4D0D51FA0324F65B178E91D /* JosefinSans-Light.ttf */ = {isa = PBXFileReference; name = "JosefinSans-Light.ttf"; path = "../assets/fonts/JosefinSans/JosefinSans-Light.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		78278CFB3330466EAEBC615B /* JosefinSans-LightItalic.ttf */ = {isa = PBXFileReference; name = "JosefinSans-LightItalic.ttf"; path = "../assets/fonts/JosefinSans/JosefinSans-LightItalic.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		3104F3F79F3749ACA1D25487 /* JosefinSans-Regular.ttf */ = {isa = PBXFileReference; name = "JosefinSans-Regular.ttf"; path = "../assets/fonts/JosefinSans/JosefinSans-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		F141C976877340D2887B39F9 /* JosefinSans-SemiBold.ttf */ = {isa = PBXFileReference; name = "JosefinSans-SemiBold.ttf"; path = "../assets/fonts/JosefinSans/JosefinSans-SemiBold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		E9C54FA879984140AE85EF12 /* JosefinSans-SemiBoldItalic.ttf */ = {isa = PBXFileReference; name = "JosefinSans-SemiBoldItalic.ttf"; path = "../assets/fonts/JosefinSans/JosefinSans-SemiBoldItalic.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		C0A19D76D32245E59ED4CA29 /* JosefinSans-Thin.ttf */ = {isa = PBXFileReference; name = "JosefinSans-Thin.ttf"; path = "../assets/fonts/JosefinSans/JosefinSans-Thin.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		C0B11481CC1749DB87E50676 /* JosefinSans-ThinItalic.ttf */ = {isa = PBXFileReference; name = "JosefinSans-ThinItalic.ttf"; path = "../assets/fonts/JosefinSans/JosefinSans-ThinItalic.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		19EC3881E4A946FE8D3F2CF3 /* Anton-Regular.ttf */ = {isa = PBXFileReference; name = "Anton-Regular.ttf"; path = "../assets/fonts/Anton/Anton-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		9891E55C1A804DD4B02EA42F /* Lobster-Regular.ttf */ = {isa = PBXFileReference; name = "Lobster-Regular.ttf"; path = "../assets/fonts/Lobster/Lobster-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		D0EF7DB59605499081A8E5F4 /* AbrilFatface-Regular.ttf */ = {isa = PBXFileReference; name = "AbrilFatface-Regular.ttf"; path = "../assets/fonts/AbrilFatface/AbrilFatface-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		1FFB9420E69A4AC098FB5B65 /* Righteous-Regular.ttf */ = {isa = PBXFileReference; name = "Righteous-Regular.ttf"; path = "../assets/fonts/Righteous/Righteous-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		AAE19334725749BBAAB347BB /* PermanentMarker-Regular.ttf */ = {isa = PBXFileReference; name = "PermanentMarker-Regular.ttf"; path = "../assets/fonts/PermanentMarker/PermanentMarker-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		4238CDB11FF546EBA50EB030 /* ConcertOne-Regular.ttf */ = {isa = PBXFileReference; name = "ConcertOne-Regular.ttf"; path = "../assets/fonts/ConcertOne/ConcertOne-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -950,6 +997,30 @@
 				446510A695D049E2AC472E0A /* rubicon-icon-font.ttf */,
 				41A5E75AD282411696809165 /* SimpleLineIcons.ttf */,
 				8783013416D644ABB5953223 /* Zocial.ttf */,
+				C5A6249F33BE4328961F5CEE /* AlexBrush-Regular.ttf */,
+				7F9310E3C18D46249503C7D2 /* MountainsofChristmas-Bold.ttf */,
+				E0D04FDD649F4D149E5F6C20 /* MountainsofChristmas-Regular.ttf */,
+				A63908BFBE5F4B28812BDE38 /* MountainsofChristmas-Bold.ttf */,
+				8A506C0C41EB4FD6BE3C35AC /* MountainsofChristmas-Regular.ttf */,
+				442686C03DD24D7AA580E03A /* Barriecito-Regular.ttf */,
+				CFC44C97201A4FFDB6D70664 /* DMSerifText-Italic.ttf */,
+				8CD4E99C05904935891598F3 /* DMSerifText-Regular.ttf */,
+				CA81ED92F33E4E42B8B0E7F6 /* JosefinSans-Bold.ttf */,
+				E64B071C139C4C1EBB658947 /* JosefinSans-BoldItalic.ttf */,
+				E45B03F20E584ECDAA50630F /* JosefinSans-Italic.ttf */,
+				C4D0D51FA0324F65B178E91D /* JosefinSans-Light.ttf */,
+				78278CFB3330466EAEBC615B /* JosefinSans-LightItalic.ttf */,
+				3104F3F79F3749ACA1D25487 /* JosefinSans-Regular.ttf */,
+				F141C976877340D2887B39F9 /* JosefinSans-SemiBold.ttf */,
+				E9C54FA879984140AE85EF12 /* JosefinSans-SemiBoldItalic.ttf */,
+				C0A19D76D32245E59ED4CA29 /* JosefinSans-Thin.ttf */,
+				C0B11481CC1749DB87E50676 /* JosefinSans-ThinItalic.ttf */,
+				19EC3881E4A946FE8D3F2CF3 /* Anton-Regular.ttf */,
+				9891E55C1A804DD4B02EA42F /* Lobster-Regular.ttf */,
+				D0EF7DB59605499081A8E5F4 /* AbrilFatface-Regular.ttf */,
+				1FFB9420E69A4AC098FB5B65 /* Righteous-Regular.ttf */,
+				AAE19334725749BBAAB347BB /* PermanentMarker-Regular.ttf */,
+				4238CDB11FF546EBA50EB030 /* ConcertOne-Regular.ttf */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -1574,6 +1645,30 @@
 				BCBD68E75A0749C6A27085C7 /* rubicon-icon-font.ttf in Resources */,
 				C713FFACEBF14859918D77C4 /* SimpleLineIcons.ttf in Resources */,
 				7D14107021864E4AA9373516 /* Zocial.ttf in Resources */,
+				08C234EA69A94E4E88A398C4 /* AlexBrush-Regular.ttf in Resources */,
+				D7B2263442A5459B837B9E46 /* MountainsofChristmas-Bold.ttf in Resources */,
+				EEC7E48955D24084B7D5C977 /* MountainsofChristmas-Regular.ttf in Resources */,
+				8DEAA9E98C534500B1637385 /* MountainsofChristmas-Bold.ttf in Resources */,
+				E029FECEB3124DDAAE67B829 /* MountainsofChristmas-Regular.ttf in Resources */,
+				8AAD6F3F62A842AD80306C41 /* Barriecito-Regular.ttf in Resources */,
+				82AD761F618C4028AF1FA188 /* DMSerifText-Italic.ttf in Resources */,
+				CBE01EC5FD8C472AB6A9B46E /* DMSerifText-Regular.ttf in Resources */,
+				CBD2357F0F0D404DB9B791C5 /* JosefinSans-Bold.ttf in Resources */,
+				9EB2D7644A114F9A83962846 /* JosefinSans-BoldItalic.ttf in Resources */,
+				C57EB532167E42D9860FDF42 /* JosefinSans-Italic.ttf in Resources */,
+				53D668B3E8854D5EB56A1FD4 /* JosefinSans-Light.ttf in Resources */,
+				6E88A14C3F62451292056A88 /* JosefinSans-LightItalic.ttf in Resources */,
+				B02869702991415AB5A6B51D /* JosefinSans-Regular.ttf in Resources */,
+				92C99D45E163443EA664D9F4 /* JosefinSans-SemiBold.ttf in Resources */,
+				382477F9A24E4753A9BE5FEB /* JosefinSans-SemiBoldItalic.ttf in Resources */,
+				FFBCE8D51AA84A0885A2E5CD /* JosefinSans-Thin.ttf in Resources */,
+				E4282306D53D48108986B1D7 /* JosefinSans-ThinItalic.ttf in Resources */,
+				70CA3C0ABA284912A9B915E5 /* Anton-Regular.ttf in Resources */,
+				F79196EAD5D44E24B9F5D704 /* Lobster-Regular.ttf in Resources */,
+				025AEE32154C4FEAA850484D /* AbrilFatface-Regular.ttf in Resources */,
+				1FB6CEC5E4A248C2B1FE883D /* Righteous-Regular.ttf in Resources */,
+				EA15790EDF7B42138EDB0D3A /* PermanentMarker-Regular.ttf in Resources */,
+				998B4B5154944A6CA5680C58 /* ConcertOne-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

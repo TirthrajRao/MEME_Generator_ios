@@ -34,16 +34,38 @@ export default StyleSheet.create({
         flexDirection: 'row',
     
       },
+      FontBar: {
+        width: '100%',
+        height: 60,
+        paddingLeft: 10,
+        paddingRight: 10,
+        flexDirection: 'row',
+        paddingBottom:20,
+        backgroundColor: 'rgba(0,0,0,0.5)'
+      },
+   
       colorButton: {
         width: 50,
         height: 60,
       },
+      FontButton: {
+        width: 80,
+        height: 60,
+      },
+    
       colorButtonView: {
         width: 40,
         height: 40,
         borderRadius: 50,
         borderWidth: 1,
         borderColor: '#FFF',
+      },
+      textFont:{
+        fontSize: 20,
+        margin:10,
+        textAlign:'center',
+        justifyContent:'center',
+        alignItems:'center'
       },
     
       iconButton:{

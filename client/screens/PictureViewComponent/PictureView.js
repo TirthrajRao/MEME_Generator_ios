@@ -34,6 +34,7 @@ class PictureView extends Component {
       cEditorEnabled: false,
       text: [],
       color: [],
+      font:[],
       image: undefined,
       images: "",
       savedImage: "",
@@ -85,16 +86,18 @@ class PictureView extends Component {
   };
   /** @param {*} text : String , text ,color and existingIndex : onFinish text pass in caption screen */
 
-  finishEditingCaption = (text, color, existingIndex) => {
+  finishEditingCaption = (text, color, existingIndex, font) => {
     this.closeCaptionEditor();
-
+console.log("-------------------------------------in picture screen",font)
     let NewValue = text;
     let NewColor = color;
+    let NewFont = font
 
     this.setState({
       text: NewValue,
       color: NewColor,
-      existingIndex: existingIndex
+      existingIndex: existingIndex,
+      font:NewFont
     });
   };
   /** setState image from Add image screen and saved image screen
@@ -352,6 +355,7 @@ class PictureView extends Component {
             visible={!this.state.cEditorEnabled}
             text={this.state.text}
             color={this.state.color}
+            font={this.state.font}
             onPress={this.openCaptionEditorOnPress.bind(this)}
             existingIndex={this.state.existingIndex}
             sticker={this.state.stickersName}

@@ -22,10 +22,21 @@ export default class About extends React.Component {
         </View>
         <View style={{ justifyContent: "center", alignItems: "center" }}>
           <Text
-            style={{ fontSize: 40, fontWeight: "bold", textAlign: "center" }}
+            style={{ fontSize: 40, textAlign: "center" , fontFamily:'sans-serif'}}
           >
             MEME Generator
           </Text>
+          <Text
+            style={{ textAlign: "center" , fontFamily:'MountainsofChristmas-Regular'}}
+          >
+            MEME Generator
+          </Text>
+          <Text
+            style={{ fontSize: 40, textAlign: "center" , fontFamily:'Barriecito-Regular'}}
+          >
+            MEME Generator
+          </Text>
+         
         </View>
       </View>
     );

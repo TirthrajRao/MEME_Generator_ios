@@ -22,9 +22,28 @@ export const COLORS = [
   "#ab47bc",
   "#f44336"
 ];
+
+export const FONTS = [
+
+  "Barriecito-Regular",
+  "MountainsofChristmas-Regular",
+  "AbrilFatface-Regular",
+  "Anton-Regular",
+  "ConcertOne-Regular",
+  "DMSerifText-Regular",
+  "JosefinSans-Regular",
+  "Lobster-Regular",
+  "PermanentMarker-Regular",
+  "Righteous-Regular",
+ 
+  
+];
+
 export const FADEDBLACK = "rgba(0,0,0,.51)";
 export const FADEDWHITE = "rgba(255,255,255,.51)";
 import styles from "./captionStyles";
+import PinchZoomView from 'react-native-pinch-zoom-view';
+
 
 export class Caption extends Component {
   constructor(props) {
@@ -162,7 +181,7 @@ export class Caption extends Component {
   /**@param {*} props :  props from picture screen
    * get in props: image, loopCount, style, lock, visible, text, color, onPress, existingIndex, sticker, offset */
   componentWillReceiveProps(props) {
-    console.log("props value====caption==============", props);
+    console.log("props value====caption==============", props.font);
 
     let data = [];
     let stickerBitmoji = [];
@@ -177,7 +196,8 @@ export class Caption extends Component {
       if (props.text[i] != "") {
         data.push({
           text: props.text[i],
-          color: props.color[i]
+          color: props.color[i],
+          font:props.font[i]
         });
         existingPanArray.push(
           new Animated.ValueXY({ x: 0, y: this.props.offset })
@@ -228,7 +248,9 @@ export class Caption extends Component {
       return (
         <View>
           {/* get text and color in  captionArray*/}
+
           {this.state.captionArray.map((data, index) => (
+            
             <View
               style={{
                 width: "100%",
@@ -237,6 +259,7 @@ export class Caption extends Component {
                 position: "absolute"
               }}
             >
+               
               <Animated.View
                 key={index}
                 {...(this.props.lock
@@ -256,17 +279,21 @@ export class Caption extends Component {
                 <TouchableWithoutFeedback
                   onPress={() => this.onclickFunction(index)}
                 >
+               
                   <Text
                     style={[
                       styles.text,
-                      { backgroundColor: bg, color: data.color }
+                      { backgroundColor: bg, color: data.color , fontFamily: data.font, width:100 }
                     ]}
                   >
                     {data.text}
                   </Text>
+                
                 </TouchableWithoutFeedback>
               </Animated.View>
+             
             </View>
+      
           ))}
           {/* get Bitmoji stickers in  imageArray*/}
           {this.state.imageArray.map((data, index) => (
