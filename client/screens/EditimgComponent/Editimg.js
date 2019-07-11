@@ -100,7 +100,8 @@ export default class Editimg extends React.Component {
       this.state.fontStyle
     );
   };
-  /** @param {string} newText : String ,add  text  */
+  
+  /** @param {string} newText add  text  */
   onChangeText = (newText, index) => {
     const ExistingText = this.state.text;
     ExistingText[index] = newText;
@@ -109,22 +110,22 @@ export default class Editimg extends React.Component {
       backgroundColor: this.state.color == "#000000" ? FADEDWHITE : FADEDBLACK
     });
   };
-  /** @param {string} color : String , selected color  */
+
+  /** @param {string} color selected color  */
   onColorSelected = color => {
     var bg;
     bg = color == "#000000" ? FADEDWHITE : FADEDBLACK;
     let existingColor = this.state.color;
     existingColor[this.state.existingIndex] = color;
     this.setState({ color: existingColor, backgroundColor: bg });
-    console.log("in edit screen color -----------", this.state.color);
   };
-  onFontSelected(selectedValue) {
-    console.log("=================selectd=====", selectedValue);
+
+  /** @param {string}  selectedValue: selected font*/
+  onFontSelected = selectedValue => {
     let existingFont = this.state.fontStyle;
     existingFont[this.state.existingIndex] = selectedValue;
     this.setState({ fontStyle: existingFont });
-    console.log("in edit screen font -----------", this.state.fontStyle);
-  }
+  };
 
   /** display font styles */
   renderFontBar = () => {
@@ -160,9 +161,12 @@ export default class Editimg extends React.Component {
           >
             <View style={{ fontFamily: FONTS[1] }}>
               <Text
-                style={[styles.textFont,{
-                  fontFamily: FONTS[1]
-                }]}
+                style={[
+                  styles.textFont,
+                  {
+                    fontFamily: FONTS[1]
+                  }
+                ]}
               >
                 Awesome
               </Text>
@@ -177,9 +181,12 @@ export default class Editimg extends React.Component {
           >
             <View style={{ fontFamily: FONTS[2] }}>
               <Text
-                style={[styles.textFont,{
-                  fontFamily: FONTS[2]
-                }]}
+                style={[
+                  styles.textFont,
+                  {
+                    fontFamily: FONTS[2]
+                  }
+                ]}
               >
                 Label
               </Text>
@@ -194,9 +201,12 @@ export default class Editimg extends React.Component {
           >
             <View style={{ fontFamily: FONTS[3] }}>
               <Text
-                style={[styles.textFont,{
-                  fontFamily: FONTS[3]
-                }]}
+                style={[
+                  styles.textFont,
+                  {
+                    fontFamily: FONTS[3]
+                  }
+                ]}
               >
                 Label
               </Text>
@@ -211,9 +221,12 @@ export default class Editimg extends React.Component {
           >
             <View style={{ fontFamily: FONTS[4] }}>
               <Text
-                style={[styles.textFont,{
-                  fontFamily: FONTS[4]
-                }]}
+                style={[
+                  styles.textFont,
+                  {
+                    fontFamily: FONTS[4]
+                  }
+                ]}
               >
                 Label
               </Text>
@@ -228,9 +241,12 @@ export default class Editimg extends React.Component {
           >
             <View style={{ fontFamily: FONTS[5] }}>
               <Text
-                style={[styles.textFont,{
-                  fontFamily: FONTS[5]
-                }]}
+                style={[
+                  styles.textFont,
+                  {
+                    fontFamily: FONTS[5]
+                  }
+                ]}
               >
                 Label
               </Text>
@@ -245,9 +261,12 @@ export default class Editimg extends React.Component {
           >
             <View style={{ fontFamily: FONTS[6] }}>
               <Text
-                style={[styles.textFont,{
-                  fontFamily: FONTS[6]
-                }]}
+                style={[
+                  styles.textFont,
+                  {
+                    fontFamily: FONTS[6]
+                  }
+                ]}
               >
                 Label
               </Text>
@@ -262,9 +281,12 @@ export default class Editimg extends React.Component {
           >
             <View style={{ fontFamily: FONTS[7] }}>
               <Text
-                style={[styles.textFont,{
-                  fontFamily: FONTS[7]
-                }]}
+                style={[
+                  styles.textFont,
+                  {
+                    fontFamily: FONTS[7]
+                  }
+                ]}
               >
                 Label
               </Text>
@@ -279,9 +301,12 @@ export default class Editimg extends React.Component {
           >
             <View style={{ fontFamily: FONTS[8] }}>
               <Text
-                style={[styles.textFont,{
-                  fontFamily: FONTS[8]
-                }]}
+                style={[
+                  styles.textFont,
+                  {
+                    fontFamily: FONTS[8]
+                  }
+                ]}
               >
                 Label
               </Text>
@@ -296,9 +321,12 @@ export default class Editimg extends React.Component {
           >
             <View style={{ fontFamily: FONTS[9] }}>
               <Text
-                style={[styles.textFont,{
-                  fontFamily: FONTS[9]
-                }]}
+                style={[
+                  styles.textFont,
+                  {
+                    fontFamily: FONTS[9]
+                  }
+                ]}
               >
                 Label
               </Text>
@@ -389,10 +417,7 @@ export default class Editimg extends React.Component {
   /** @param {Number} key : Number , addTextInput function call from picture view and key is loopcount */
 
   addTextInput = key => {
-    console.log(
-      "this.state.textinput in edit image screen ",
-      this.state.textInput
-    );
+  
     let textInput = this.state.textInput;
     textInput.push(key);
 
@@ -401,8 +426,7 @@ export default class Editimg extends React.Component {
 
     let existinFont = this.state.fontStyle;
     existinFont.push();
-    console.log("existinFont==================", existinFont);
-
+   
     let existinText = this.state.text;
     existinText.push("Sample Text");
     this.setState({
@@ -415,7 +439,7 @@ export default class Editimg extends React.Component {
   };
 
   render() {
-    console.log("in text edit ----------------", this.state.existingIndex);
+ 
     let len = this.state.text.length;
 
     if (this.props.enabled) {

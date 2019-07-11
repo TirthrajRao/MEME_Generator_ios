@@ -34,11 +34,9 @@ export default class AddedStickers extends React.Component {
     // let dirs = `/storage/emulated/0/MEME_Generator/`;
     await RNFS.readDir(dirs)
       .then(async allFolderName => {
-        console.log("index 0============", allFolderName[0].name);
 
         let dirs = Platform.OS === 'android' ? `/storage/emulated/0/MEME_Generator/${allFolderName[0].name}`
           : `${RNFS.DocumentDirectoryPath}/MEME_Generator/Stickers/${allFolderName[0].name}`;
-        console.log("show added stickers in ios", dirs)
 
         RNFS.readDir(dirs)
           .then(allImages => {
@@ -69,7 +67,6 @@ export default class AddedStickers extends React.Component {
       .catch(err => { 
         console.log("Error",err)
       });
-      console.log("===============================,",this.state.categoryName )
   }
   //  Show tabs in bottom
 
@@ -91,7 +88,6 @@ export default class AddedStickers extends React.Component {
   }
   /**  @param {string} data: String ,data is  name of category and category wise read directory  */
   emoji(data) {
-    console.log("call emoji============", data);
     let dirs = Platform.OS === 'android' ? `/storage/emulated/0/MEME_Generator/${data}`
       : `${RNFS.DocumentDirectoryPath}/MEME_Generator/Stickers/${data}`;
 

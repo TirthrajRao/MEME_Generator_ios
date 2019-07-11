@@ -6496,6 +6496,11 @@ react-native-image-base64@^0.1.3:
   resolved "https://registry.yarnpkg.com/react-native-image-base64/-/react-native-image-base64-0.1.3.tgz#bfc9eaf7cd3ec705aa25f00f6a11d0c379217fe8"
   integrity sha512-0n1gLLvA9VJZ1w0zyaDYZQH/Re2VOQFW5kt0P/qYhqs4f1MvWsaTs+7CxXIQR3L2wgEsfDJ1sIKyrAZ0RoR2Hg==
 
+react-native-image-pan-zoom@^2.1.11:
+  version "2.1.11"
+  resolved "https://registry.yarnpkg.com/react-native-image-pan-zoom/-/react-native-image-pan-zoom-2.1.11.tgz#61bcb69219d95e76a9797d23e4a2e8e0bd654ae9"
+  integrity sha512-ZCisGUFpPchHXsjT7ZI0anlSLPgcTmjRKXqpVnPu3RDWFXfKjuL4zpY57DX4Y8YgGZCpbf9fApN7KjVYody2Mw==
+
 react-native-image-picker@^0.28.1:
   version "0.28.1"
   resolved "https://registry.yarnpkg.com/react-native-image-picker/-/react-native-image-picker-0.28.1.tgz#1127460522e0c9741fc62f3d040271d298fb6a6e"
@@ -6521,13 +6526,6 @@ react-native-modal@^7.0.1:
   dependencies:
     prop-types "^15.6.1"
     react-native-animatable "^1.2.4"
-
-react-native-pinch-zoom-view@^0.2.0:
-  version "0.2.0"
-  resolved "https://registry.yarnpkg.com/react-native-pinch-zoom-view/-/react-native-pinch-zoom-view-0.2.0.tgz#5ff469e7b1b4a69629a8fb31a226d3855e813799"
-  integrity sha512-KPrJCSKX/NZuNjyS9gl4gR1AhV0sWo2KgJOI5tD8+YhzjtSRHnaq9XvOdO4ero3oyU2oFXyFHEVH+DzOfaXqOg==
-  dependencies:
-    prop-types "^15.6.0"
 
 react-native-raw-bottom-sheet@^2.0.2:
   version "2.0.2"

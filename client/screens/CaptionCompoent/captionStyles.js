@@ -1,5 +1,6 @@
 import { StyleSheet } from "react-native";
-
+const imageSize = 400
+const stickerCanvasSize = imageSize * 2
 export default StyleSheet.create({
   container: {
     height: "auto",
@@ -21,7 +22,23 @@ export default StyleSheet.create({
     fontSize: 25
   },
   preview: {
-    height: 50,
-    width: 50
-  }
+    height: 80,
+    width: 80,
+   // marginBottom:120
+  },
+  stickerContainer: {
+    position: 'absolute',
+    height: stickerCanvasSize, 
+    width: stickerCanvasSize,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  backgroundImage: {
+    height: imageSize,
+    width: imageSize
+  },
+  pinchableImage: {
+    width: 250,
+    height: 250,
+  },
 });

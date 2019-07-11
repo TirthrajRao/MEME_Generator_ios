@@ -36,10 +36,10 @@ export default class SavedImage extends React.Component {
     let dirs = Platform.OS === 'android' ? `/storage/emulated/0/MEME-Generator`
       : `${RNFS.DocumentDirectoryPath}/MEME_Generator/SavePictures`
 
-    console.log("filepath in get image screen======ios", dirs);
+   
     RNFS.readDir(dirs)
       .then(allImages => {
-        console.log("allImages", allImages);
+      
        
         this.setState({ image: allImages });
         this.setState({ animating: true });
