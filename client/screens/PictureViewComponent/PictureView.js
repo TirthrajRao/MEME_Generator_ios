@@ -9,7 +9,7 @@ import {
   Animated,
   Platform,
   Alert,
-  Dimensions
+  TextInput
 } from "react-native";
 import PropTypes from "prop-types";
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
@@ -23,7 +23,6 @@ import ImagePicker from "react-native-image-picker";
 import RBSheet from "react-native-raw-bottom-sheet";
 import AddedStickers from "../addedStickerComponent/AddedStickers";
 
-
 import styles from "./pictureViewStyles";
 
 class PictureView extends Component {
@@ -34,7 +33,7 @@ class PictureView extends Component {
       cEditorEnabled: false,
       text: [],
       color: [],
-      font:[],
+      font: [],
       image: undefined,
       images: "",
       savedImage: "",
@@ -88,16 +87,16 @@ class PictureView extends Component {
 
   finishEditingCaption = (text, color, existingIndex, font) => {
     this.closeCaptionEditor();
-console.log("-------------------------------------in picture screen",font)
+
     let NewValue = text;
     let NewColor = color;
-    let NewFont = font
+    let NewFont = font;
 
     this.setState({
       text: NewValue,
       color: NewColor,
       existingIndex: existingIndex,
-      font:NewFont
+      font: NewFont
     });
   };
   /** setState image from Add image screen and saved image screen
@@ -116,7 +115,7 @@ console.log("-------------------------------------in picture screen",font)
     setTimeout(() => {
       captureScreen({
         format: "jpg",
-        quality: 1,
+        quality: 1
         // justifyContent: "center",
         // alignItems: "center",
         // resizeMode: "cover",
@@ -138,7 +137,6 @@ console.log("-------------------------------------in picture screen",font)
       Platform.OS === "android"
         ? `/storage/emulated/0/MEME-Generator`
         : `${RNFS.DocumentDirectoryPath}/MEME_Generator/SavePictures`;
-    console.log("------android----ios---picturesview--", absolutePath);
 
     RNFS.mkdir(absolutePath)
       .then(result => {
@@ -175,7 +173,6 @@ console.log("-------------------------------------in picture screen",font)
         }
       )
         .then(() => {
-          console.log(this.state.screenshortImage);
           let name = uri.split("/")[8];
           let url = uri;
           let dirs = `/storage/emulated/0/MEME-Generator`;
@@ -205,12 +202,11 @@ console.log("-------------------------------------in picture screen",font)
       let dirs = `${RNFS.DocumentDirectoryPath}/MEME_Generator/SavePictures`;
       const file_path = dirs + "/" + name;
 
-      console.log("========name ios in picture screem", file_path);
       RNFS.readFile(this.state.screenshortImage, "base64").then(res => {
         this.setState({ resBase64: res });
         let base64 = this.state.resBase64;
         RNFS.writeFile(file_path, base64, "base64");
-        console.log("------ios path save images ===", file_path);
+
         Alert.alert("Success", "Photo added to camera roll!");
         this.setState({ statusButton: true, status: true }).catch(error => {
           console.log("Error:", error);
@@ -222,22 +218,16 @@ console.log("-------------------------------------in picture screen",font)
   stickers = uri => {
     let stickers = this.state.stickers;
     stickers.push(uri);
-    console.log("call stickres in picture=", this.state.stickers);
   };
 
   /** @param {*} item: on click Emoji and show added stickers */
   stickersandemoji = item => {
-    console.log("------------------item----ios-------", item);
     this.RBSheet.close();
 
     let existinSticker = this.state.stickersName;
     existinSticker.push(item);
 
     this.setState({ stickersName: existinSticker });
-    console.log(
-      "in picture screen==============ios===============",
-      this.state.stickersName
-    );
   };
   closeRBSheet = () => {
     this.RBSheet.close();
@@ -297,6 +287,7 @@ console.log("-------------------------------------in picture screen",font)
                     </TouchableOpacity>
                   </View>
 
+
                   <View style={styles.emojiIcon}>
                     <TouchableOpacity
                       style={styles.iconButton}
@@ -344,7 +335,7 @@ console.log("-------------------------------------in picture screen",font)
             loopCount={this.state.loopCount}
             style={styles.captionEditor}
           />
-           <Caption
+          <Caption
             ref={ref => {
               this.caption = ref;
             }}
@@ -359,9 +350,9 @@ console.log("-------------------------------------in picture screen",font)
             onPress={this.openCaptionEditorOnPress.bind(this)}
             existingIndex={this.state.existingIndex}
             sticker={this.state.stickersName}
-          /> 
-         
-           <View
+          />
+
+          <View
             style={{
               flexDirection: "row",
               flex: 1,

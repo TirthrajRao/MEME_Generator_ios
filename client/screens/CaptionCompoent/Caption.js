@@ -72,7 +72,15 @@ export class Caption extends Component {
       panArrayImage: [],
       panArraySticker: [],
       imageArray: [],
-      stickerArray: []
+      stickerArray: [],
+      lastOffset: [],
+      onPanGestureEvent: [],
+      translateX: [],
+      translateY: [],
+      onRotateGestureEvent: [],
+      rotate: [],
+      lastRotate: [],
+      rotateStr: []
     };
 
     /* Pinching */
@@ -89,46 +97,41 @@ export class Caption extends Component {
       [{ nativeEvent: { scale: this.pinchScale } }],
       { useNativeDriver: USE_NATIVE_DRIVER }
     );
+  
+  }
 
-    /* Rotation */
-    this.rotate = new Animated.Value(0);
-    this.rotateStr = this.rotate.interpolate({
-      inputRange: [-100, 100],
-      outputRange: ["-100rad", "100rad"]
-    });
-    this.lastRotate = 0;
-    this.onRotateGestureEvent = Animated.event(
+  componentDidMount = () => {
+    this.state.onPanGestureEvent = Animated.event(
+      [
+        {
+          nativeEvent: {
+            translationX: this.translateX,
+            translationY: this.translateY
+          }
+        }
+      ],
+      { useNativeDriver: USE_NATIVE_DRIVER }
+    );
+    this.state.onRotateGestureEvent = Animated.event(
       [{ nativeEvent: { rotation: this.rotate } }],
       { useNativeDriver: USE_NATIVE_DRIVER }
     );
-
-    /* Pan */
-
-    this.translateX = new Animated.Value(0);
-    this.translateY = new Animated.Value(0);
-    this.lastOffset = { x: 0, y: 0 };
-    this.onPanGestureEvent = Animated.event(
-      [
-        {
-          nativeEvent: 
-           { translationX: this.translateX,
-             translationY: this.translateY
-           }
-
-        },
-      ],
-      { useNativeDriver: USE_NATIVE_DRIVER }
-      );
-  }
-
+  };
 
   onRotateHandlerStateChange = (event, index) => {
     if (event.nativeEvent.oldState === State.ACTIVE) {
-      this.lastRotate += event.nativeEvent.rotation;
-      this.rotate.setOffset(this.lastRotate);
-      this.rotate.setValue(0);
-      // console.log("======rotate===,", this.lastRotate);
+      this.state.lastRotate[index] += event.nativeEvent.rotation;
+      this.state.rotate[index].setOffset(this.state.lastRotate[index]);
+      this.state.rotate[index].setValue(0);
+
+      this.state.rotateStr[index] = this.state.rotate[index].interpolate({
+        inputRange: [-100, 100],
+        outputRange: ['-100rad', '100rad'],
+      });
     }
+
+   
+    console.log(index, "this.state.rotateStr============" ,this.state.rotateStr )
   };
 
   onPinchHandlerStateChange = (event, index) => {
@@ -141,22 +144,17 @@ export class Caption extends Component {
   };
 
   onPanStateChange = (event, index) => {
-    console.log("-----index", index);
-    let nativeEvent = [];
-    nativeEvent.push(event.nativeEvent);
-
     if (event.nativeEvent.oldState === State.ACTIVE) {
-      console.log( index, "========nativeEvent[index].oldState=====",nativeEvent[index]);
-      this.lastOffset.x += event.nativeEvent.translationX;
-      this.lastOffset.y += event.nativeEvent.translationY;
-      this.translateX.setOffset(this.lastOffset.x);
-      this.translateX.setValue(0);
-      this.translateY.setOffset(this.lastOffset.y);
-      this.translateY.setValue(0);
+      this.state.lastOffset[index].x += event.nativeEvent.translationX;
+      this.state.lastOffset[index].y += event.nativeEvent.translationY;
+      this.state.translateX[index].setOffset(this.state.lastOffset[index].x);
+      this.state.translateX[index].setValue(0);
+      this.state.translateY[index].setOffset(this.state.lastOffset[index].y);
+      this.state.translateY[index].setValue(0);
     }
   };
 
-  /**@param {*} index: Number , index wise moving text  */
+  /**@param {*} index: Number ,index wise moving text  */
   getPanResponder(index) {
     console.log("call ", index);
     return PanResponder.create({
@@ -277,7 +275,7 @@ export class Caption extends Component {
   /**@param {*} props :  props from picture screen
    * get in props: image, loopCount, style, lock, visible, text, color, onPress, existingIndex, sticker, offset */
   componentWillReceiveProps(props) {
-    console.log("props value====caption==============", props.font);
+    console.log("props value====caption==============", props.sticker);
 
     let data = [];
     let stickerBitmoji = [];
@@ -285,7 +283,12 @@ export class Caption extends Component {
 
     const existingPanArray = this.state.panArray;
     const existingPanArrayImage = this.state.panArrayImage;
-    const existingPanArraySticker = this.state.panArraySticker;
+    const existingPanArraySticker = this.state.lastOffset;
+    const translateX = this.state.translateX;
+    const translateY = this.state.translateY;
+    const rotate = this.state.rotate;
+    const lastRotate = this.state.lastRotate;
+    const rotateStr = this.state.rotateStr;
     /** setState text and color */
 
     for (let i = 0; i < props.text.length; i++) {
@@ -311,26 +314,39 @@ export class Caption extends Component {
       );
     }
     /** setState Emoji  */
-
+    rotate.push(new Animated.Value(0));
+    lastRotate.push(0);
     for (let i = 0; i < props.sticker.length; i++) {
       stickerAndEmoji.push({
         sticker: props.sticker[i]
       });
-      existingPanArraySticker.push(
-        new Animated.ValueXY({ x: 0, y: this.props.offset })
+      
+      rotateStr.push(
+        this.state.rotate[i].interpolate({
+          inputRange: [-100, 100],
+          outputRange: ["-100rad", "100rad"]
+        })
       );
     }
-
-    this.setState({ captionArray: data, panArray: existingPanArray });
+   
+    translateX.push(new Animated.Value(0));
+    translateY.push(new Animated.Value(0));
+    
+ 
+    existingPanArraySticker.push({ x: 0, y: 0 });
     this.setState({
+      captionArray: data,
+      panArray: existingPanArray,
       imageArray: stickerBitmoji,
-      panArrayImage: existingPanArrayImage
-    });
-    this.setState({
+      panArrayImage: existingPanArrayImage,
       stickerArray: stickerAndEmoji,
-      panArraySticker: existingPanArraySticker
+      translateX: translateX,
+      translateY: translateY,
+      lastOffset: existingPanArraySticker,
+      rotate: rotate,
+      lastRotate: lastRotate,
+      rotateStr: rotateStr
     });
-    console.log("this.=============================", this.state.stickerArray);
   }
   /** @param {*} index : Number, index wise call function  */
   onclickFunction(index) {
@@ -338,10 +354,6 @@ export class Caption extends Component {
   }
 
   render() {
-    const translateX = this.translateX;
-    const translateY = this.translateY;
-
-    console.log("call render in caption");
     var bg = this.props.color == "#000000" ? FADEDWHITE : FADEDBLACK;
     if (this.props.visible) {
       return (
@@ -438,7 +450,7 @@ export class Caption extends Component {
               <PanGestureHandler
                 key={index}
                 {...this.props}
-                onGestureEvent={(index) => this.onPanGestureEvent(index)}
+                onGestureEvent={this.state.onPanGestureEvent}
                 onHandlerStateChange={e => this.onPanStateChange(e, index)}
                 id={index + "image_drag"}
                 simultaneousHandlers={[
@@ -454,9 +466,9 @@ export class Caption extends Component {
                     index + "image_pinch",
                     index + "image_drag"
                   ]}
-                  onGestureEvent={this.onRotateGestureEvent}
-                  onHandlerStateChange={index =>
-                    this.onRotateHandlerStateChange(index)
+                  onGestureEvent={this.state.onRotateGestureEvent}
+                  onHandlerStateChange={e =>
+                    this.onRotateHandlerStateChange(e, index)
                   }
                 >
                   <PinchGestureHandler
@@ -476,23 +488,30 @@ export class Caption extends Component {
                       style={[
                         styles.stickerContainer,
                         this.props.style,
-                        { transform: [{ translateX }, { translateY }] }
+                        {
+                          transform: [
+                            { translateX: this.state.translateX[index] },
+                            { translateY: this.state.translateY[index] }
+                          ]
+                        }
                       ]}
                       collapsable={false}
                     >
-                      <Animated.Image
-                        style={[
-                          styles.preview,
-                          {
-                            transform: [
-                              { perspective: 200 },
-                              { scale: this.scale },
-                              { rotate: this.rotateStr }
-                            ]
-                          }
-                        ]}
-                        source={{ uri: "file://" + data.sticker }}
-                      />
+                      <TouchableWithoutFeedback>
+                        <Animated.Image
+                          style={[
+                            styles.preview,
+                            {
+                              transform: [
+                                { perspective: 200 },
+                                { scale: this.scale },
+                                { rotate: this.state.rotateStr[index] }
+                              ]
+                            }
+                          ]}
+                          source={{ uri: "file://" + data.sticker }}
+                        />
+                      </TouchableWithoutFeedback>
                     </Animated.View>
                   </PinchGestureHandler>
                 </RotationGestureHandler>
@@ -523,29 +542,3 @@ Caption.defaultProps = {
   visible: true,
   onPress: () => {}
 };
-
-{
-  /* <Animated.View
-key={index}
-{...(this.props.lock
-  ? null
-  : this.getPanResponderSticker(index).panHandlers)}
-style={[
-  this.props.style,
-  styles.container,
-  {
-    transform: [
-      { translateX: this.state.panArraySticker[index].x },
-      { translateY: this.state.panArraySticker[index].y }
-    ]
-  }
-]}
->
-<TouchableWithoutFeedback>
-  <Image
-    source={{ uri: "file://" + data.sticker }}
-    style={styles.preview}
-  />
-</TouchableWithoutFeedback>
-</Animated.View> */
-}

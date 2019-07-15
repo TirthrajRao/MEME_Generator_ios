@@ -32,13 +32,8 @@ export default StyleSheet.create({
     width: stickerCanvasSize,
     alignItems: 'center',
     justifyContent: 'center',
+    
+  
   },
-  backgroundImage: {
-    height: imageSize,
-    width: imageSize
-  },
-  pinchableImage: {
-    width: 250,
-    height: 250,
-  },
+ 
 });
