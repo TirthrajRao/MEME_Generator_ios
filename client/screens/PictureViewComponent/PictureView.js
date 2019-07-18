@@ -9,7 +9,6 @@ import {
   Animated,
   Platform,
   Alert,
-  TextInput
 } from "react-native";
 import PropTypes from "prop-types";
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
@@ -62,8 +61,8 @@ class PictureView extends Component {
       stickers: [],
       stickersName: []
     });
-    this.closeCaptionEditor();
     this.props.onCancel();
+    this.closeCaptionEditor();
   };
   /** on click text open caption editor */
 

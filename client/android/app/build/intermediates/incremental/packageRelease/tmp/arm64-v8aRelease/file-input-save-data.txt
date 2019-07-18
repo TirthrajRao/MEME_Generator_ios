@@ -1,5 +1,5 @@
 #Internal package file, do not edit.
-#Tue Jul 09 13:23:30 IST 2019
+#Tue Jul 16 13:37:46 IST 2019
 70.path=lib/x86/libjscexecutor.so
 78.base=/var/www/html/MEME_Generator_ios/client/android/app/build/intermediates/transforms/mergeJniLibs/release/0
 84.path=fonts/ConcertOne-Regular.ttf

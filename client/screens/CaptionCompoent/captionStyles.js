@@ -24,16 +24,14 @@ export default StyleSheet.create({
   preview: {
     height: 80,
     width: 80,
-   // marginBottom:120
   },
   stickerContainer: {
-    position: 'absolute',
-    height: stickerCanvasSize, 
-    width: stickerCanvasSize,
+     position: 'absolute',
+    height: imageSize, 
+    width: imageSize,
     alignItems: 'center',
     justifyContent: 'center',
-    
-  
   },
+  
  
 });

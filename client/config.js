@@ -6,6 +6,7 @@ module.exports = {
 
 
 // module.exports = {
-// 	baseurl: "https://meme-generator.raoinformationtechnology.com:5001/api/",
-// 	medialUrl: "https://meme-generator.raoinformationtechnology.com/snapchat/server/public/images/"
+// 	baseurl: "https://serene-dawn-20193.herokuapp.com/api/",
+//	medialUrl: "https://serene-dawn-20193.herokuapp.com/public/images/"
+// }
 // }
