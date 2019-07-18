@@ -93,9 +93,11 @@ export class Caption extends Component {
       scale: [],
       lastScale: []
     };
+    
   }
 
   componentDidMount = () => {
+
     /** onPanGestureEvent */
     this.state.onPanGestureEvent = Animated.event(
       [
@@ -135,14 +137,10 @@ export class Caption extends Component {
     }
   };
 
-  /** @param { object ,number } onPinchHandlerStateChange  for pinch stickers  */
 
   /**
-   * THis is doing someting cal for the rotate
-   * 
    * @param {object} event Event object which contains event details
    * @param {number} index which index of current element(emoji)
-   * @returns
    */
   onPinchHandlerStateChange = (event, index) => {
     if (event.nativeEvent.oldState === State.ACTIVE) {
@@ -357,7 +355,7 @@ export class Caption extends Component {
       captionArray: data,
       panArray: existingPanArray,
       imageArray: stickerBitmoji,
-      panArrayImage: existingPanArrayImage,
+      panArrayImage: existingPanArrayImage
     });
     /** setState stickers  */
 
@@ -401,7 +399,6 @@ export class Caption extends Component {
 
       existingPanArraySticker.push({ x: 0, y: 0 });
       this.setState({
-       
         stickerArray: stickerAndEmoji,
         translateX: translateX,
         translateY: translateY,
@@ -459,7 +456,6 @@ export class Caption extends Component {
                         backgroundColor: bg,
                         color: data.color,
                         fontFamily: data.font,
-                        width: 100
                       }
                     ]}
                   >
@@ -595,7 +591,7 @@ Caption.propTypes = {
   text: PropTypes.string,
   lock: PropTypes.bool,
   offset: PropTypes.number,
-  visible: PropTypes.bool
+  visible: PropTypes.bool,
 };
 
 Caption.defaultProps = {

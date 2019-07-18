@@ -8,7 +8,7 @@ import {
   Image,
   Animated,
   Platform,
-  Alert,
+  Alert
 } from "react-native";
 import PropTypes from "prop-types";
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
@@ -53,17 +53,6 @@ class PictureView extends Component {
     this.closeRBSheet = this.closeRBSheet.bind(this);
   }
 
-  /** on click cancle edited text and color removed */
-  onCancel = () => {
-    this.setState({
-      text: [],
-      color: [],
-      stickers: [],
-      stickersName: []
-    });
-    this.props.onCancel();
-    this.closeCaptionEditor();
-  };
   /** on click text open caption editor */
 
   openCaptionEditor = () => {
@@ -225,11 +214,24 @@ class PictureView extends Component {
 
     let existinSticker = this.state.stickersName;
     existinSticker.push(item);
-
     this.setState({ stickersName: existinSticker });
   };
   closeRBSheet = () => {
     this.RBSheet.close();
+  };
+
+  /** on click cancle edited text and color removed */
+  onCancel = () => {
+    console.log("call oncancle function ");
+    this.setState({
+      stickersName: [],
+      text: [],
+      color: [],
+      stickers: []
+    });
+
+    this.closeCaptionEditor();
+    this.props.onCancel();
   };
 
   render() {
@@ -285,7 +287,6 @@ class PictureView extends Component {
                       <Icon name={"camera"} size={34} color="#606060" />
                     </TouchableOpacity>
                   </View>
-
 
                   <View style={styles.emojiIcon}>
                     <TouchableOpacity

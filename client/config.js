@@ -7,6 +7,5 @@ module.exports = {
 
 // module.exports = {
 // 	baseurl: "https://serene-dawn-20193.herokuapp.com/api/",
-//	medialUrl: "https://serene-dawn-20193.herokuapp.com/public/images/"
-// }
+// 	medialUrl: "https://serene-dawn-20193.herokuapp.com/public/images/"
 // }
