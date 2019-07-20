@@ -24,6 +24,7 @@ import AddedStickers from "../addedStickerComponent/AddedStickers";
 
 import styles from "./pictureViewStyles";
 
+
 class PictureView extends Component {
   constructor(props) {
     super(props);
@@ -128,7 +129,13 @@ class PictureView extends Component {
 
     RNFS.mkdir(absolutePath)
       .then(result => {
-        this.moveFile(uri);
+
+        if (Platform.OS === "android") {
+          this.moveFile(uri);
+        }else{
+          this.actualDownload(uri);
+        }
+        
       })
       .catch(err => {
         console.warn("Error", err);
@@ -183,8 +190,8 @@ class PictureView extends Component {
           console.log("Error", err);
         });
     } else {
-      let name = uri.split("/")[15]; // for emulator
-      //let name = uri.split("/")[10];  // for device
+      //let name = uri.split("/")[15]; // for emulator
+      let name = uri.split("/")[10];  // for device
       console.log("---------uri", name);
       let url = uri;
       let dirs = `${RNFS.DocumentDirectoryPath}/MEME_Generator/SavePictures`;

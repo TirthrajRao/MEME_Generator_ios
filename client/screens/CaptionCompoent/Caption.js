@@ -476,7 +476,7 @@ export class Caption extends Component {
 
     if (this.props.visible) {
       return (
-        <View>
+        <View style={{zIndex:1}}> 
           {/* get text and color in  captionArray*/}
 
           {this.state.captionArray.map((data, index) => (
@@ -538,6 +538,9 @@ export class Caption extends Component {
                       ]}
                       collapsable={false}
                     >
+                      <TouchableWithoutFeedback
+                  onPress={() => this.onclickFunction(index)}
+                >
                       <Animated.Text
                         key={index}
                         style={[
@@ -558,6 +561,7 @@ export class Caption extends Component {
                       >
                         {data.text}
                       </Animated.Text>
+                      </TouchableWithoutFeedback>
                     </Animated.View>
                   </PinchGestureHandler>
                 </RotationGestureHandler>
