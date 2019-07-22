@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "/var/www/html/MEME_Generator_ios/client/android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-ca/values-ca.xml",
+            "outputFile": "/var/www/html/MEME_Generator_ios_v2/client/android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-ca/values-ca.xml",
             "map": [
                 {
                     "source": "/home/rao/.gradle/caches/transforms-1/files-1.1/exoplayer-ui-2.9.3.aar/a70f6ce3be68f2a10ad9ce40828d397e/res/values-ca/values-ca.xml",

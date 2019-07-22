@@ -1,5 +1,5 @@
 import { StyleSheet } from "react-native";
-const imageSize = 400
+const imageSize = 250
 const stickerCanvasSize = imageSize * 2
 export default StyleSheet.create({
   container: {
@@ -32,6 +32,4 @@ export default StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-  
- 
 });

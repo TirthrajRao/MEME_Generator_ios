@@ -1,16 +1,16 @@
-# Referenced at /var/www/html/MEME_Generator_ios/client/android/app/build/intermediates/merged_manifests/release/x86_64/AndroidManifest.xml:30
+# Referenced at /var/www/html/MEME_Generator_ios_v2/client/android/app/build/intermediates/merged_manifests/release/x86_64/AndroidManifest.xml:30
 -keep class android.support.v4.app.CoreComponentFactory { <init>(); }
-# Referenced at /var/www/html/MEME_Generator_ios/client/android/app/build/intermediates/merged_manifests/release/x86_64/AndroidManifest.xml:69
+# Referenced at /var/www/html/MEME_Generator_ios_v2/client/android/app/build/intermediates/merged_manifests/release/x86_64/AndroidManifest.xml:69
 -keep class android.support.v4.content.FileProvider { <init>(); }
-# Referenced at /var/www/html/MEME_Generator_ios/client/android/app/build/intermediates/merged_manifests/release/x86_64/AndroidManifest.xml:60
+# Referenced at /var/www/html/MEME_Generator_ios_v2/client/android/app/build/intermediates/merged_manifests/release/x86_64/AndroidManifest.xml:60
 -keep class cl.json.RNShareFileProvider { <init>(); }
-# Referenced at /var/www/html/MEME_Generator_ios/client/android/app/build/intermediates/merged_manifests/release/x86_64/AndroidManifest.xml:58
+# Referenced at /var/www/html/MEME_Generator_ios_v2/client/android/app/build/intermediates/merged_manifests/release/x86_64/AndroidManifest.xml:58
 -keep class com.facebook.react.devsupport.DevSettingsActivity { <init>(); }
-# Referenced at /var/www/html/MEME_Generator_ios/client/android/app/build/intermediates/merged_manifests/release/x86_64/AndroidManifest.xml:78
+# Referenced at /var/www/html/MEME_Generator_ios_v2/client/android/app/build/intermediates/merged_manifests/release/x86_64/AndroidManifest.xml:78
 -keep class com.imagepicker.FileProvider { <init>(); }
-# Referenced at /var/www/html/MEME_Generator_ios/client/android/app/build/intermediates/merged_manifests/release/x86_64/AndroidManifest.xml:38
+# Referenced at /var/www/html/MEME_Generator_ios_v2/client/android/app/build/intermediates/merged_manifests/release/x86_64/AndroidManifest.xml:38
 -keep class com.snapchat.MainActivity { <init>(); }
-# Referenced at /var/www/html/MEME_Generator_ios/client/android/app/build/intermediates/merged_manifests/release/x86_64/AndroidManifest.xml:30
+# Referenced at /var/www/html/MEME_Generator_ios_v2/client/android/app/build/intermediates/merged_manifests/release/x86_64/AndroidManifest.xml:30
 -keep class com.snapchat.MainApplication { <init>(); }
 # Referenced at /home/rao/.gradle/caches/transforms-1/files-1.1/appcompat-v7-28.0.0.aar/c0170fd72d169111b396d8ae2d5bffb8/res/layout/abc_alert_dialog_material.xml:41
 -keep class android.support.v4.widget.NestedScrollView { <init>(android.content.Context, android.util.AttributeSet); }
@@ -82,7 +82,7 @@
 # Referenced at /home/rao/.gradle/caches/transforms-1/files-1.1/exoplayer-ui-2.9.3.aar/a70f6ce3be68f2a10ad9ce40828d397e/res/layout/exo_simple_player_view.xml:18
 -keep class com.google.android.exoplayer2.ui.AspectRatioFrameLayout { <init>(android.content.Context, android.util.AttributeSet); }
 
-# Referenced at /var/www/html/MEME_Generator_ios/client/node_modules/react-native-video/android-exoplayer/build/intermediates/packaged_res/release/layout/exo_player_control_view.xml:59
+# Referenced at /var/www/html/MEME_Generator_ios_v2/client/node_modules/react-native-video/android-exoplayer/build/intermediates/packaged_res/release/layout/exo_player_control_view.xml:59
 # Referenced at /home/rao/.gradle/caches/transforms-1/files-1.1/exoplayer-ui-2.9.3.aar/a70f6ce3be68f2a10ad9ce40828d397e/res/layout/exo_playback_control_view.xml:76
 -keep class com.google.android.exoplayer2.ui.DefaultTimeBar { <init>(android.content.Context, android.util.AttributeSet); }
 

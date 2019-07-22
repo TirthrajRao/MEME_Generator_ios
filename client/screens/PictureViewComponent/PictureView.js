@@ -52,6 +52,7 @@ class PictureView extends Component {
     this.finishEditingCaption = this.finishEditingCaption.bind(this);
     this.stickersandemoji = this.stickersandemoji.bind(this);
     this.closeRBSheet = this.closeRBSheet.bind(this);
+    this.onCancel = this.onCancel.bind(this)
   }
 
   /** on click text open caption editor */
@@ -62,6 +63,7 @@ class PictureView extends Component {
       loopCount: this.state.loopCount + 1
     });
     this.child.current.addTextInput(this.state.loopCount);
+    
   };
   /** for edit text */
   openCaptionEditorOnPress = () => {
@@ -231,12 +233,13 @@ class PictureView extends Component {
   onCancel = () => {
     console.log("call oncancle function ");
     this.setState({
-      stickersName: [],
       text: [],
       color: [],
-      stickers: []
+      font:[],
+      stickers: [],
+      stickersName: [],
     });
-
+    this.caption.onCancel()
     this.closeCaptionEditor();
     this.props.onCancel();
   };
@@ -357,6 +360,7 @@ class PictureView extends Component {
             onPress={this.openCaptionEditorOnPress.bind(this)}
             existingIndex={this.state.existingIndex}
             sticker={this.state.stickersName}
+            onCancel={this.onCancel.bind(this)}
           />
 
           <View

@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "/var/www/html/MEME_Generator_ios/client/android/app/build/intermediates/incremental/mergeReleaseResources/merged.dir/values-pt-rBR/values-pt-rBR.xml",
+            "outputFile": "/var/www/html/MEME_Generator_ios_v2/client/android/app/build/intermediates/incremental/mergeReleaseResources/merged.dir/values-pt-rBR/values-pt-rBR.xml",
             "map": [
                 {
                     "source": "/home/rao/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/265bd3185354d27ea931b112c0c7fa99/res/values-pt-rBR/values-pt-rBR.xml",
