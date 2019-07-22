@@ -7,14 +7,15 @@ import {
   Image,
   ActivityIndicator,
   Platform
-} from "react-native"; import RNFetchBlob from "rn-fetch-blob";
+} from "react-native";
+import RNFetchBlob from "rn-fetch-blob";
 
 import { Header } from "native-base";
 
 import RNFS from "react-native-fs";
 import MenuButton from "../../components/MenuButton";
 
-import styles from './saveimgStyles';
+import styles from "./saveimgStyles";
 
 export default class SavedImage extends React.Component {
   constructor(props) {
@@ -22,34 +23,30 @@ export default class SavedImage extends React.Component {
     this.state = {
       image: [],
       selectedImage: undefined,
-      animating: false
+      animating: false,
     };
-    this.props.navigation.addListener(
-      'didFocus',
-      payload => {
-        this.componentDidMount()
-      
-      });
+    this.props.navigation.addListener("didFocus", payload => {
+      this.componentDidMount();
+    });
   }
-  // in componentDidMount  read device's dir. 
+  // in componentDidMount  read device's dir.
   componentDidMount = async () => {
-    let dirs = Platform.OS === 'android' ? `/storage/emulated/0/MEME-Generator`
-      : `${RNFS.DocumentDirectoryPath}/MEME_Generator/SavePictures`
+    let dirs =
+      Platform.OS === "android"
+        ? `/storage/emulated/0/MEME-Generator`
+        : `${RNFS.DocumentDirectoryPath}/MEME_Generator/SavePictures`;
 
-   
     RNFS.readDir(dirs)
       .then(allImages => {
-      
-       
         this.setState({ image: allImages });
         this.setState({ animating: true });
+        
       })
       .catch(err => {
         console.log("err", err);
         console.log(err.message, err.code);
       });
   };
-
 
   render() {
     const animating = this.state.animating;
@@ -67,7 +64,6 @@ export default class SavedImage extends React.Component {
       );
     } else {
       return (
-
         <View>
           <Header style={styles.header}>
             <MenuButton navigation={this.props.navigation} />
@@ -75,13 +71,16 @@ export default class SavedImage extends React.Component {
               <Text style={styles.text1}> All Saved image </Text>
             </View>
           </Header>
+     
           <FlatList
             data={this.state.image}
             renderItem={({ item }) => (
               <View style={styles.GridViewContainer}>
                 <TouchableOpacity
                   onPress={() => {
-                    navigation.navigate("ShowSavedImg", { image: "file://" + item.path })
+                    navigation.navigate("ShowSavedImg", {
+                      image: "file://" + item.path
+                    });
                   }}
                 >
                   <Image
@@ -93,11 +92,9 @@ export default class SavedImage extends React.Component {
             )}
             numColumns={2}
           />
+        
         </View>
-
-
       );
     }
   }
 }
-
