@@ -6,7 +6,8 @@ import {
   PinchGestureHandler,
   RotationGestureHandler,
   State,
-  TouchableWithoutFeedback
+  TouchableWithoutFeedback,
+  TouchableOpacity
 } from "react-native-gesture-handler";
 import PropTypes from "prop-types";
 export const COLORS = [
@@ -302,7 +303,8 @@ export class Caption extends Component {
     });
   }
 
-  /** @param {*}  props :props from picture screen
+  /**
+   *  @param {*}  props :props from picture screen
    *  get in props: image, loopCount, style, lock, visible, text, color, onPress, existingIndex, sticker, offset
    * in componentWillReceiveProps set initial value for move, pinch and rotate (Text, Stickers)
    */
@@ -480,25 +482,27 @@ export class Caption extends Component {
     this.setState({
       captionArray: [], // captionArray contains text, color and fonts
       panArrayImage: [], // bitmoji stickers
-
       stickerArray: []
     });
   }
 
   render() {
+    // const AnimatedTouchable = Animated.createAnimatedComponent(TouchableOpacity);
     if (this.props.visible) {
       return (
         <View>
           {/* get text and color in  captionArray*/}
 
+           {/* <TouchableWithoutFeedback onPress = { () => this.onclickFunction()}>  */}
           {this.state.captionArray.map((data, index) => (
+            // <AnimatedTouchable onPress={(index)=>this.onclickFunction(index)}>
             <View
-              style={{
-                width: "100%",
-                justifyContent: "center",
-                alignItems: "center",
-                position: "absolute"
-              }}
+            style={{
+              width: "100%",
+              justifyContent: "center",
+              alignItems: "center",
+              position: "absolute"
+            }}
             >
               {/* pan Text */}
               <PanGestureHandler
@@ -555,7 +559,7 @@ export class Caption extends Component {
                       ]}
                       collapsable={false}
                     >
-                      {/* <TouchableWithoutFeedback onPress = { (index) => this.onclickFunction(index)}> */}
+                 
 
                       <Animated.Text
                         key={index}
@@ -577,13 +581,15 @@ export class Caption extends Component {
                       >
                         {data.text}
                       </Animated.Text>
-                      {/* </TouchableWithoutFeedback> */}
                     </Animated.View>
                   </PinchGestureHandler>
                 </RotationGestureHandler>
               </PanGestureHandler>
+             
             </View>
+            // </AnimatedTouchable>
           ))}
+          {/* </TouchableWithoutFeedback>    */}
           {/* get Bitmoji stickers in  imageArray*/}
           {this.state.imageArray.map((data, index) => (
             <View

@@ -18,7 +18,7 @@ export default class About extends React.Component {
         </Header>
 
         <View style={{ justifyContent: "center", alignItems: "center" }}>
-          <Image style={styles.img} source={require("../../assets/logo.png")} />
+          <Image style={styles.img} source={require("../../assets/logo2.jpg")} />
         </View>
         <View style={{ justifyContent: "center", alignItems: "center" }}>
           <Text style={styles.textTitle}>MEME Generator</Text>

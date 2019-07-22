@@ -73,7 +73,7 @@ export default class App extends React.Component {
 
 
   closeActivityIndicator = () => setTimeout(() => this.setState({
-    isLoading: false }), 500)
+    isLoading: false }), 1500)
 
   componentDidMount = () => this.closeActivityIndicator()
 

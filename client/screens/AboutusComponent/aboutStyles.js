@@ -39,6 +39,9 @@ export default StyleSheet.create({
    contain:{
     color:'#000',
     fontSize:15,
+    justifyContent:'center',
+    textAlign:'justify',
+    padding:5
   }
 
 });

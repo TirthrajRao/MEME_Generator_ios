@@ -13,7 +13,7 @@ export default class SplashScreen extends React.Component {
 
       <Text style={styles.text}> MEME Generator </Text>
 
-      <Image style={styles.img} source={require('../assets/logo.png')}/>
+      <Image style={styles.img} source={require('../assets/logo2.jpg')}/>
 
       </View>
 

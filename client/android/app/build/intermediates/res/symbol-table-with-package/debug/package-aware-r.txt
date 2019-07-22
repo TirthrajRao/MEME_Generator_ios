@@ -675,6 +675,7 @@ drawable exo_notification_rewind
 drawable exo_notification_small_icon
 drawable exo_notification_stop
 drawable logo
+drawable logo2
 drawable notification_action_background
 drawable notification_bg
 drawable notification_bg_low

@@ -44,7 +44,7 @@ export default class Editimg extends React.Component {
       text: [],
       onChangeValue: "",
       existingIndex: -1,
-
+      newText:[],
       fontStyle: []
     };
 
@@ -109,6 +109,7 @@ export default class Editimg extends React.Component {
       text: ExistingText,
       backgroundColor: this.state.color == "#000000" ? FADEDWHITE : FADEDBLACK
     });
+  
   };
 
   /** @param {string} color selected color  */
