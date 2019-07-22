@@ -21,22 +21,15 @@ export default class About extends React.Component {
           <Image style={styles.img} source={require("../../assets/logo.png")} />
         </View>
         <View style={{ justifyContent: "center", alignItems: "center" }}>
-          <Text
-            style={{ fontSize: 40, textAlign: "center" , fontFamily:'sans-serif'}}
-          >
-            MEME Generator
+          <Text style={styles.textTitle}>MEME Generator</Text>
+        </View>
+        <View style={styles.card}>
+          <Text style={styles.contain}>
+            MEME Generator is an app that is very much helpful to make meme.
+            Using this app you can easily make MEME. User will able to add
+            Stickers and also create own emoji using Bitmoji. User will able to
+            add Text and also change fontcolor and fontFamily.
           </Text>
-          <Text
-            style={{ textAlign: "center" , fontFamily:'MountainsofChristmas-Regular'}}
-          >
-            MEME Generator
-          </Text>
-          <Text
-            style={{ fontSize: 40, textAlign: "center" , fontFamily:'Barriecito-Regular'}}
-          >
-            MEME Generator
-          </Text>
-         
         </View>
       </View>
     );

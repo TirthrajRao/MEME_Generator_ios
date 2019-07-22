@@ -10,6 +10,8 @@ import {
 } from "react-native";
 
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
+import Icons from "react-native-vector-icons/MaterialIcons";
+
 
 class MenuDrawer extends React.Component {
   navLink(nav, text) {
@@ -24,62 +26,53 @@ class MenuDrawer extends React.Component {
   }
 
   render() {
-   
-
     return (
       <View style={styles.container}>
         <ScrollView style={styles.scroller}>
-
-
-        <View style={styles.topLinks}>
-
-
-     <View style={styles.profile}>
-     <View style={styles.imgView}>
-     <Image style={styles.img} source={require('../assets/logo.png')}/>
-
-
-     </View>
-     <View style={styles.profileText}>
-     <Text style={styles.name}>MEME_Generator</Text>
-     </View>
-     </View>
-
-
-</View>
-
-
+          <View style={styles.topLinks}>
+            <View style={styles.profile}>
+              <View style={styles.imgView}>
+                <Image
+                  style={styles.img}
+                  source={require("../assets/logo.png")}
+                />
+              </View>
+              <View style={styles.profileText}>
+                <Text style={styles.name}>MEME_Generator</Text>
+              </View>
+            </View>
+          </View>
 
           <View style={styles.bottomLinks}>
             <View style={{ flex: 2, flexDirection: "row" }}>
               <Icon
-                name="image-plus"
+                name="image-filter"
                 size={25}
                 style={{ marginTop: 15, color: "white", marginLeft: 10 }}
               />
-              {this.navLink("AddImage", "AddImage")}
+              {this.navLink("AddImage", "Add Image")}
             </View>
             <View style={{ flex: 2, flexDirection: "row" }}>
-              <Icon
-                name="shopping"
+              <Icons
+                name="shop-two"
                 size={25}
                 style={{ marginTop: 15, color: "white", marginLeft: 10 }}
               />
-              {this.navLink("StickerShop", "StickerShop")}
+              {this.navLink("StickerShop", "Sticker Shop")}
+            </View>
+
+            <View style={{ flex: 2, flexDirection: "row" }}>
+              <Icons
+                name="photo-library"
+                size={25}
+                style={{ marginTop: 15, color: "white", marginLeft: 10 }}
+              />
+              {this.navLink("SavedImage", "Saved Image")}
             </View>
 
             <View style={{ flex: 2, flexDirection: "row" }}>
               <Icon
-                name="folder-multiple-image"
-                size={25}
-                style={{ marginTop: 15, color: "white", marginLeft: 10 }}
-              />
-              {this.navLink("SavedImage", "SavedImage")}
-            </View>
-
-            <View style={{ flex: 2, flexDirection: "row" }}>
-              <Icon
-                name="folder-multiple-image"
+                name="information-outline"
                 size={25}
                 style={{ marginTop: 15, color: "white", marginLeft: 10 }}
               />
@@ -96,7 +89,7 @@ export default MenuDrawer;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#383048"
+    backgroundColor: "#181123"
   },
   scroller: {
     flex: 1
@@ -105,7 +98,6 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: "row",
     alignItems: "center",
-    paddingTop: 25,
     borderBottomWidth: 1,
     borderBottomColor: "#4b415a"
   },
@@ -123,18 +115,16 @@ const styles = StyleSheet.create({
   imgView: {
     flex: 1,
     paddingLeft: 20,
-    paddingRight: 20,
-   
+    paddingRight: 20
   },
   img: {
-    
     height: Platform.OS === "android" ? 70 : 70,
     width: Platform.OS === "android" ? 70 : 70,
     borderRadius: Platform.OS === "android" ? 50 : 35
   },
   topLinks: {
-    height: 160,
-    backgroundColor: "#383048"
+    height: 120,
+    backgroundColor: "#181123"
   },
 
   link: {
@@ -155,7 +145,7 @@ const styles = StyleSheet.create({
   },
   bottomLinks: {
     flex: 1,
-    backgroundColor: "#383048",
+    backgroundColor: "#181123",
     paddingTop: 10,
     color: "white"
   },
@@ -165,7 +155,7 @@ const styles = StyleSheet.create({
     fontSize: 16
   },
   btnlogout: {
-    backgroundColor: "#383048",
+    backgroundColor: "#181123",
     color: "white",
     flexDirection: "row"
   }

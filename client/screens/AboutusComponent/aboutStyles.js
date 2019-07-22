@@ -22,7 +22,23 @@ export default StyleSheet.create({
   img: {
     height: 100,
     width: 100,
-    borderRadius: 50
+    borderRadius: 50,
+    marginTop:10
   },
+  textTitle:{
+    fontSize: 40, 
+    textAlign: "center",
+    color:'#000'
+  },
+  card:{
+    elevation:5,
+    margin:10,
+    backgroundColor:'#fff',
+    padding:5
+  },
+   contain:{
+    color:'#000',
+    fontSize:15,
+  }
 
 });

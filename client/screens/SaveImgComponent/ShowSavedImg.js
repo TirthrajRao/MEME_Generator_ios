@@ -83,7 +83,7 @@ export default class ShowSavedImg extends React.Component {
                 <Icon
                   name={"share-variant"}
                   size={28}
-                  color="#000000"
+                  color="#fff"
                   style={{ marginRight: 15 }}
                 />
 
@@ -102,7 +102,7 @@ export default class ShowSavedImg extends React.Component {
                 <Icon
                   name={"pencil"}
                   size={28}
-                  color="#000000"
+                  color="#fff"
                   style={{ marginRight: 15 }}
                 />
 

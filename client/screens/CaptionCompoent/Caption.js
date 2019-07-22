@@ -449,15 +449,12 @@ export class Caption extends Component {
         arraybase = this.state.baseScale[i];
       }
       scale.push(Animated.multiply(arraybase, arrayPinch));
-      console.log("rotate===>>>>", this.state.rotate);
-      console.log("====>>>>>>>>>>>,", arrayrotatestr);
       await rotateStr.push(
         arrayrotatestr.interpolate({
           inputRange: [-100, 100],
           outputRange: ["-100rad", "100rad"]
         })
       );
-      console.log("===>>>>>>rotateste", rotateStr);
       // for move stickers
       translateX.push(new Animated.Value(0));
       translateY.push(new Animated.Value(374.90909090909093)); // HEIGHT/2 => 374.90909090909093

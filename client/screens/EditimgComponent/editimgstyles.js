@@ -41,7 +41,7 @@ export default StyleSheet.create({
         paddingRight: 10,
         flexDirection: 'row',
         paddingBottom:20,
-        backgroundColor: 'rgba(0,0,0,0.5)'
+        backgroundColor: '#fff'
       },
    
       colorButton: {

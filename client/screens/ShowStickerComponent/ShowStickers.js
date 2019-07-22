@@ -28,7 +28,10 @@ export default class ShowStickers extends React.Component {
       firstImg: []
     };
   }
-  // in  componentDidMount call stickers api
+  /** in  componentDidMount call stickers api
+   *  Api.DownloadStickers : call from service
+   * show stickers particularl category wise
+   */
   componentDidMount = () => {
     const data = this.props.navigation.state.params.data;
     Api.DownloadStickers(data)
@@ -49,7 +52,7 @@ export default class ShowStickers extends React.Component {
         console.log("Internal server Error", err);
       });
   };
-  // show download and remove button
+  /** show download and remove button */
   showButtons = () => {
     return (
       <View>
@@ -58,28 +61,28 @@ export default class ShowStickers extends React.Component {
         {this.state.show ? (
           <TouchableOpacity
             style={{
-              backgroundColor: "#e7e7e7",
+              backgroundColor: "#181123",
               borderRadius: 10,
               borderWidth: 1,
               borderColor: "#fff",
-              padding: 5
+            
             }}
             onPress={() => this.remove()}
           >
-            <Text style={{ color: "black", textAlign: "center" }}>Remove</Text>
+            <Text style={{ color: "#fff", textAlign: "center" ,  padding:5, justifyContent:'center', alignContent:'center' }}>Remove</Text>
           </TouchableOpacity>
         ) : (
           <TouchableOpacity
             style={{
-              backgroundColor: "#e7e7e7",
+              backgroundColor: "#181123",
               borderRadius: 10,
               borderWidth: 1,
               borderColor: "#fff",
-              padding: 5
+             
             }}
             onPress={() => this.download()}
           >
-            <Text style={{ color: "black", textAlign: "center" }}>
+            <Text style={{ color: "#fff", textAlign: "center", padding:5, justifyContent:'center', alignContent:'center' }}>
               Download
             </Text>
           </TouchableOpacity>
@@ -87,7 +90,7 @@ export default class ShowStickers extends React.Component {
       </View>
     );
   };
-  // read dir of device
+  /** read dir of device */
   readDir = () => {
     let dirs =
       Platform.OS === "android"
@@ -107,7 +110,7 @@ export default class ShowStickers extends React.Component {
         this.setState({ error: err.code });
       });
   };
-  // make Directory in device when click download button
+  /** make Directory in device when click download button */
   download = () => {
     let absolutePath =
       Platform.OS === "android"
@@ -127,7 +130,7 @@ export default class ShowStickers extends React.Component {
       });
   };
 
-  // download stickers in  one particular folder in device
+  /** download stickers in  one particular folder in device */
   actualDownload = () => {
     if (Platform.OS === "android") {
       PermissionsAndroid.request(
@@ -154,9 +157,10 @@ export default class ShowStickers extends React.Component {
               .then(res => {
                 console.log("res.data============================", res.data);
                 this.setState({ resDownloadedData: res.data });
-              }).catch( err => {
-                console.log("Error ", err)
               })
+              .catch(err => {
+                console.log("Error ", err);
+              });
           }
         })
         .catch(err => {
@@ -187,7 +191,7 @@ export default class ShowStickers extends React.Component {
       }
     }
   };
-  // on click remove button remove folder from device
+  /** on click remove button remove folder from device */
   remove() {
     let dirs =
       Platform.OS === "android"

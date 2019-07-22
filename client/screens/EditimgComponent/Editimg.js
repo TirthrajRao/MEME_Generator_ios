@@ -148,7 +148,7 @@ export default class Editimg extends React.Component {
                   }
                 ]}
               >
-                hey
+                Label
               </Text>
             </View>
           </TouchableOpacity>
@@ -168,7 +168,7 @@ export default class Editimg extends React.Component {
                   }
                 ]}
               >
-                Awesome
+                Label
               </Text>
             </View>
           </TouchableOpacity>

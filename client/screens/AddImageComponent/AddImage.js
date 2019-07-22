@@ -10,6 +10,7 @@ import Picker from "react-native-image-picker";
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 import MenuButton from "../../components/MenuButton";
 const HEIGHT = Dimensions.get("screen").height;
+const WIDTH = Dimensions.get("screen").width;
 import styles from "./addImageStyles";
 
 export default class AddImage extends React.Component {
@@ -29,7 +30,7 @@ export default class AddImage extends React.Component {
         <Header style={styles.header}>
           <MenuButton navigation={this.props.navigation} />
           <View style={styles.title}>
-            <Text style={styles.text1}> MEME Generator </Text>
+            <Text style={styles.headrTitle}> MEME Generator </Text>
           </View>
         </Header>
         <View>
@@ -41,6 +42,12 @@ export default class AddImage extends React.Component {
           >
             <View
               style={{
+                marginLeft:45,
+                marginRight:45,
+                marginTop:45,
+                marginBottom:45,
+                borderColor:'#e7e7e7',
+                borderWidth:2,
                 height: HEIGHT / 3,
                 justifyContent: "center",
                 alignItems: "center",
@@ -54,10 +61,16 @@ export default class AddImage extends React.Component {
                 style={styles.icon}
                 onPress={() => this._pickImage("image")}
               />
+              <Text style={styles.text}>Add Image</Text>
             </View>
             <View
               style={{
                 height: HEIGHT / 3,
+                marginLeft:45,
+                marginRight:45,
+                marginBottom:45,
+                borderColor:'#e7e7e7',
+                borderWidth:2,
                 justifyContent: "center",
                 alignItems: "center",
                 textAlign: "center"
@@ -70,6 +83,7 @@ export default class AddImage extends React.Component {
                 style={styles.icon}
                 onPress={() => navigation.navigate("SavedImage")}
               />
+              <Text style={styles.text}>Saved Image</Text>
             </View>
           </View>
         </View>

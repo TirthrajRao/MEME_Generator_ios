@@ -74,7 +74,13 @@ class PictureView extends Component {
   closeCaptionEditor = () => {
     this.setState({ cEditorEnabled: false });
   };
-  /** @param {*} text : String , text ,color and existingIndex : onFinish text pass in caption screen */
+
+  /**
+   * @param {array} text : onFinish text pass in caption screen 
+   * @param {array} color :  onFinish color pass in caption screen 
+   * @param {number} existingIndex : onFinish pass  index in caption screen
+   * @param {array}  font : onFinish font pass in caption screen
+  */
 
   finishEditingCaption = (text, color, existingIndex, font) => {
     this.closeCaptionEditor();
@@ -90,16 +96,17 @@ class PictureView extends Component {
       font: NewFont
     });
   };
-  /** setState image from Add image screen and saved image screen
-   get image in paramas */
+  /** 
+   * setState image from Add image screen and saved image screen
+   *  get image in paramas */
   componentDidMount = () => {
     this.setState({
-      images: this.props.navigation.state.params.image,
-      savedImage: this.props.navigation.state.params.savedImage
+      images: this.props.navigation.state.params.image, // from AddImage screen 
+      savedImage: this.props.navigation.state.params.savedImage // from saved image screen 
     });
   };
-  /** snapshot of screen and download image in device*/
 
+  /** snapshot of screen and download image in device*/
   snapshot = () => {
     this.setState({ status: false, statusButton: false });
 
@@ -211,13 +218,17 @@ class PictureView extends Component {
       });
     }
   };
-  /**  @param {*} uri:sticker path, stickers function for bitmoji stickers */
+  /** 
+   *  @param {*} uri:sticker path, stickers function for bitmoji stickers
+   */
   stickers = uri => {
     let stickers = this.state.stickers;
     stickers.push(uri);
   };
 
-  /** @param {*} item: on click Emoji and show added stickers */
+  /**
+   *  @param {*} item: on click Emoji and show added stickers 
+  */
   stickersandemoji = item => {
     this.RBSheet.close();
 
@@ -225,11 +236,14 @@ class PictureView extends Component {
     existinSticker.push(item);
     this.setState({ stickersName: existinSticker });
   };
+  /** 
+   * For colse RBSheet 
+   */
   closeRBSheet = () => {
     this.RBSheet.close();
   };
 
-  /** on click cancle edited text and color removed */
+  /** on click cancle edited text, color, Font, Stickers removed */
   onCancel = () => {
     console.log("call oncancle function ");
     this.setState({
@@ -239,7 +253,7 @@ class PictureView extends Component {
       stickers: [],
       stickersName: [],
     });
-    this.caption.onCancel()
+    this.caption.onCancel() // this function call in caption screen 
     this.closeCaptionEditor();
     this.props.onCancel();
   };

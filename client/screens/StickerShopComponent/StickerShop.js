@@ -28,7 +28,6 @@ export default class StickerShop extends React.Component {
       show: false,
       animating: false,
       isCheckInternetConnection: false,
-
       connection_Status: ""
     };
     this.props.navigation.addListener("didFocus", payload => {
@@ -37,9 +36,11 @@ export default class StickerShop extends React.Component {
     this.animatedValue = new Animated.Value(-70);
   }
 
-  /** in componentDidMount get categoryname and add key alreadyDownloaded or not
+  /**
+   *  in componentDidMount get categoryname and add key alreadyDownloaded or not
    *  Api.showCategoryName() call from service
-   *  NetInfo is check internet connection */
+   *  NetInfo is check internet connection
+   */
   componentDidMount() {
     NetInfo.isConnected.addEventListener(
       "connectionChange",
@@ -53,7 +54,7 @@ export default class StickerShop extends React.Component {
         this.setState({ connection_Status: "Offline" });
       }
     });
-
+    //Show category name
     Api.showCategoryName()
       .then(async res => {
         console.log("------", res.result.category);
@@ -66,8 +67,7 @@ export default class StickerShop extends React.Component {
               : `${RNFS.DocumentDirectoryPath}/MEME_Generator/Stickers/${
                   categoryData[i].name
                 }`;
-
-          console.log("-----dir-----in component did mount---", dirs);
+          // For download and remove icon
           await RNFS.readDir(dirs)
             .then(allDownloadedCategory => {
               categoryData[i]["alreadyDownloaded"] = true;
@@ -78,7 +78,6 @@ export default class StickerShop extends React.Component {
             });
         }
         this.setState({ categoryName: categoryData, animating: true });
-        console.log("----names=====", this.state.categoryName);
       })
       .catch(err => {
         console.log("Internal server Error", err);
@@ -103,6 +102,10 @@ export default class StickerShop extends React.Component {
       this.setState({ connection_Status: "Offline" });
     }
   };
+
+  /**
+   * Toast For internet connection
+   */
   closeToast() {
     setTimeout(() => {
       Animated.timing(this.animatedValue, {
@@ -113,7 +116,8 @@ export default class StickerShop extends React.Component {
   }
   /** on click  download button call api for get name of stickers
    * Api.DownloadStickers(data) call from service
-   * @param {string} Data:name of category */
+   * @param {string} Data:name of category 
+   */
 
   download(data) {
     Api.DownloadStickers(data).then(res => {
@@ -230,7 +234,9 @@ export default class StickerShop extends React.Component {
       }
     }
   };
-  /** @param {string} data: category name and on click remove particular category */
+  /** 
+   * @param {string} data: category name and on click remove particular category 
+   */
   remove(data) {
     let dirs =
       Platform.OS === "android"
@@ -257,7 +263,9 @@ export default class StickerShop extends React.Component {
         console.log("err", err);
       });
   }
-  /** @param {string} data : name of downloaded categoty and show download and remove buttons */
+  /** 
+   * @param {string} data : name of downloaded categoty and show download and remove buttons
+   */
   showButtons(data) {
     if (data.alreadyDownloaded == true) {
       return (

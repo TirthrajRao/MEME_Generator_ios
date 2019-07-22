@@ -8,7 +8,7 @@ export default StyleSheet.create({
     alignItems: "center",
     marginTop: 70
   },
-  text1: {
+  headrTitle: {
     fontSize: 21,
     color: "black",
     justifyContent: "center",
@@ -48,5 +48,10 @@ export default StyleSheet.create({
   title: {
     flex: 7,
     flexDirection: "column"
+  },
+  text:{
+    fontSize:20,
+    color:'#000',
+    fontWeight: "bold",
   }
 });

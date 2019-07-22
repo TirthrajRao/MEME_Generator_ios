@@ -83,7 +83,7 @@ export default StyleSheet.create({
   button:{
     flexDirection: "row",
     borderColor: "pink",
-    backgroundColor: "pink",
+    backgroundColor: "#181123",
     borderRadius: 10,
     borderWidth: 1,
     marginLeft: 60,
@@ -96,6 +96,6 @@ export default StyleSheet.create({
   btnText:{
     fontSize: 20, 
     fontWeight: "bold",
-     color: "black"
+     color: "#fff"
   }
 });
