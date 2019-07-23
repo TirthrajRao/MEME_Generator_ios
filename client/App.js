@@ -1,4 +1,3 @@
-
 import React, {Component} from 'react';
 import {Platform, StyleSheet, Text,Dimensions, View, BackHandler, Animated ,TouchableOpacity} from 'react-native';
 import Routes from './screens/Routes';
@@ -18,7 +17,6 @@ import About from './screens/AboutusComponent/about'
 let {width, height} = Dimensions.get('window');
 
 export default class App extends React.Component {
-
 
   constructor(props) {
     super(props);
@@ -71,12 +69,10 @@ export default class App extends React.Component {
     return true;
   };
 
-
   closeActivityIndicator = () => setTimeout(() => this.setState({
     isLoading: false }), 1500)
 
   componentDidMount = () => this.closeActivityIndicator()
-
 
   render() {
 
@@ -87,7 +83,6 @@ export default class App extends React.Component {
       return (
         <View style={styles.container}>
         <Routes />
-
 
         <View >
         <Animated.View style={[styles.animatedView, {transform: [{translateY: this.springValue}]}]}>
@@ -136,5 +131,3 @@ const styles = StyleSheet.create({
   }
 
 });
-
-

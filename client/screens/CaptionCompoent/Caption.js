@@ -213,6 +213,13 @@ export class Caption extends Component {
       this.state.lastRotate[index] += event.nativeEvent.rotation;
       this.state.rotate[index].setOffset(this.state.lastRotate[index]);
       this.state.rotate[index].setValue(0);
+
+      this.state.rotateStr[index] = this.state.rotate[
+        index
+      ].interpolate({
+        inputRange: [-100, 100],
+        outputRange: ["-100rad", "100rad"]
+      });
     }
   };
 
