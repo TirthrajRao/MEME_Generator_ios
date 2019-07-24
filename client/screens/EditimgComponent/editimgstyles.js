@@ -1,4 +1,4 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet , Platform} from 'react-native';
 
 export default StyleSheet.create({
     container: {
@@ -45,8 +45,9 @@ export default StyleSheet.create({
       },
    
       colorButton: {
-        width: 50,
-        height: 60,
+        width: 30,
+        height: 30,
+        margin:10
       },
       FontButton: {
         width: 80,
@@ -54,18 +55,18 @@ export default StyleSheet.create({
       },
     
       colorButtonView: {
-        width: 40,
-        height: 40,
+        width: 30,
+        height: 30,
         borderRadius: 50,
         borderWidth: 1,
-        borderColor: '#FFF',
+        elevation:5,
+        
+
       },
       textFont:{
         fontSize: 20,
-        margin:10,
         textAlign:'center',
-        justifyContent:'center',
-        alignItems:'center'
+     
       },
     
       iconButton:{
@@ -90,5 +91,89 @@ export default StyleSheet.create({
         alignItems: 'center',
         zIndex: 1,
     
+      },
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      container: {
+        flex: 1
+      },
+      header: {
+        alignItems: "center",
+        justifyContent: "center",
+        paddingTop: Platform.OS === "ios" ? 20 : 0,
+        paddingBottom: 16
+      },
+      content: {
+        alignItems: "flex-start",
+        justifyContent: "flex-start",
+        flexDirection: "column"
+      },
+      headerText: {
+        marginTop: 24,
+        fontSize: 34,
+        lineHeight: 41,
+        ...Platform.select({
+          android: {
+            fontFamily: "sans-serif-bold"
+          },
+          ios: {
+            fontWeight: "700",
+            letterSpacing: 0.41
+          }
+        })
+      },
+      gradient: {
+        alignSelf: "stretch",
+        marginLeft: 12,
+        marginTop: 12,
+        marginBottom: 16,
+        height: 4
+      },
+      sliderRow: {
+        alignSelf: "stretch",
+        marginLeft: 12,
+        marginTop: 12
+        // marginTop:250
+      },
+      sliderRow1: {
+        margin: 10,
+    
+        alignSelf: "stretch",
+        marginLeft: 12,
+        marginTop: 12
       }
+
     })

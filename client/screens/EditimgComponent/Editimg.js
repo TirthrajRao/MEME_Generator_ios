@@ -23,6 +23,7 @@ import {
   FONTS
 } from "../CaptionCompoent/Caption";
 import styles from "./editimgstyles";
+import { ColorPicker } from "react-native-color-picker";
 
 /** on click outside DismissKeyboard */
 
@@ -44,7 +45,7 @@ export default class Editimg extends React.Component {
       text: [],
       onChangeValue: "",
       existingIndex: -1,
-      newText:[],
+      newText: [],
       fontStyle: []
     };
 
@@ -100,7 +101,7 @@ export default class Editimg extends React.Component {
       this.state.fontStyle
     );
   };
-  
+
   /** @param {string} newText add  text  */
   onChangeText = (newText, index) => {
     const ExistingText = this.state.text;
@@ -109,11 +110,11 @@ export default class Editimg extends React.Component {
       text: ExistingText,
       backgroundColor: this.state.color == "#000000" ? FADEDWHITE : FADEDBLACK
     });
-  
   };
 
   /** @param {string} color selected color  */
   onColorSelected = color => {
+    console.log("========call")
     var bg;
     bg = color == "#000000" ? FADEDWHITE : FADEDBLACK;
     let existingColor = this.state.color;
@@ -342,83 +343,28 @@ export default class Editimg extends React.Component {
   renderColorBar = () => {
     return (
       <View style={styles.colorBar}>
-        <TouchableOpacity
-          onPressOut={() => {
-            this.onColorSelected(COLORS[0]);
+        <View
+          style={{
+            width: 150,
+            height: 150,
+            padding: 15,
+            marginLeft:250,
+            backgroundColor: "#212021"
           }}
-          style={[styles.colorButton]}
         >
-          <View
-            style={[styles.colorButtonView, { backgroundColor: COLORS[0] }]}
+          <ColorPicker
+            onColorSelected={color => this.onColorSelected(color)}
+            style={{ flex: 1 }}
           />
-        </TouchableOpacity>
-        <TouchableOpacity
-          onPressOut={() => {
-            this.onColorSelected(COLORS[1]);
-          }}
-          style={[styles.colorButton]}
-        >
-          <View
-            style={[styles.colorButtonView, { backgroundColor: COLORS[1] }]}
-          />
-        </TouchableOpacity>
-        <TouchableOpacity
-          onPressOut={() => {
-            this.onColorSelected(COLORS[2]);
-          }}
-          style={[styles.colorButton]}
-        >
-          <View
-            style={[styles.colorButtonView, { backgroundColor: COLORS[2] }]}
-          />
-        </TouchableOpacity>
-        <TouchableOpacity
-          onPressOut={() => {
-            this.onColorSelected(COLORS[3]);
-          }}
-          style={[styles.colorButton]}
-        >
-          <View
-            style={[styles.colorButtonView, { backgroundColor: COLORS[3] }]}
-          />
-        </TouchableOpacity>
-        <TouchableOpacity
-          onPressOut={() => {
-            this.onColorSelected(COLORS[4]);
-          }}
-          style={[styles.colorButton]}
-        >
-          <View
-            style={[styles.colorButtonView, { backgroundColor: COLORS[4] }]}
-          />
-        </TouchableOpacity>
-        <TouchableOpacity
-          onPressOut={() => {
-            this.onColorSelected(COLORS[5]);
-          }}
-          style={[styles.colorButton]}
-        >
-          <View
-            style={[styles.colorButtonView, { backgroundColor: COLORS[5] }]}
-          />
-        </TouchableOpacity>
-        <TouchableOpacity
-          onPressOut={() => {
-            this.onColorSelected(COLORS[6]);
-          }}
-          style={[styles.colorButton]}
-        >
-          <View
-            style={[styles.colorButtonView, { backgroundColor: COLORS[6] }]}
-          />
-        </TouchableOpacity>
+        </View>
+
+     
       </View>
     );
   };
   /** @param {Number} key : Number , addTextInput function call from picture view and key is loopcount */
 
   addTextInput = key => {
-  
     let textInput = this.state.textInput;
     textInput.push(key);
 
@@ -427,7 +373,7 @@ export default class Editimg extends React.Component {
 
     let existinFont = this.state.fontStyle;
     existinFont.push();
-   
+
     let existinText = this.state.text;
     existinText.push("Sample Text");
     this.setState({
@@ -440,7 +386,6 @@ export default class Editimg extends React.Component {
   };
 
   render() {
- 
     let len = this.state.text.length;
 
     if (this.props.enabled) {
@@ -501,3 +446,4 @@ Editimg.defaultProps = {
   onFinish: () => {},
   enabled: false
 };
+
