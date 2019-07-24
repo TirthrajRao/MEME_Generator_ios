@@ -345,7 +345,11 @@ class PictureView extends Component {
                       propsfunction={this.stickersandemoji.bind(this)}
                     />
                   </RBSheet>
+
+
                 </Header>
+
+             
               </View>
             ) : null}
           </View>
@@ -399,6 +403,18 @@ class PictureView extends Component {
               />
             )}
           </View>
+
+          <View style={styles.lasticon}>
+                    <TouchableOpacity 
+                      style={styles.iconButton} 
+                      onPress={() => this.RBSheet.open()} >
+                      <Icon
+                        name={"emoticon-happy-outline"}
+                        size={34}
+                        color="#606060"
+                      />
+                    </TouchableOpacity>
+                  </View>
         </View>
       );
     } else {

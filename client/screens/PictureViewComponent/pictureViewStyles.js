@@ -107,5 +107,14 @@ export default StyleSheet.create({
   header: {
     backgroundColor: "#ffffff",
     height: Platform.OS === "android" ? 55 : 65
-  }
+  },
+  lasticon: {
+    position: 'absolute',
+    bottom: 0,
+    right: 0,
+    paddingRight: 15,
+    paddingBottom: 15,
+    zIndex: 1
+  },
+
 });
