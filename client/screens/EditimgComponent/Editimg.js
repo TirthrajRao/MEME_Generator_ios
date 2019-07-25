@@ -342,14 +342,16 @@ export default class Editimg extends React.Component {
   /** display color bar */
   renderColorBar = () => {
     return (
-      <View style={styles.colorBar}>
+   
         <View
           style={{
             width: 150,
             height: 150,
-            padding: 15,
-            marginLeft:250,
-            backgroundColor: "#212021"
+            position: "absolute",
+            bottom: 0,
+            right: 0,
+            paddingRight: 15,
+            paddingBottom: 15,
           }}
         >
           <ColorPicker
@@ -358,8 +360,7 @@ export default class Editimg extends React.Component {
           />
         </View>
 
-     
-      </View>
+    
     );
   };
   /** @param {Number} key : Number , addTextInput function call from picture view and key is loopcount */

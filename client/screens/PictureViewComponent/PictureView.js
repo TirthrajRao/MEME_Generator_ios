@@ -404,18 +404,10 @@ class PictureView extends Component {
             )}
           </View>
 
-          <View style={styles.lasticon}>
-                    <TouchableOpacity 
-                      style={styles.iconButton} 
-                      onPress={() => this.RBSheet.open()} >
-                      <Icon
-                        name={"emoticon-happy-outline"}
-                        size={34}
-                        color="#606060"
-                      />
-                    </TouchableOpacity>
-                  </View>
+         
         </View>
+
+        
       );
     } else {
       return null;
@@ -463,3 +455,33 @@ PictureView.defaultProps = {
 };
 
 export default PictureView;
+
+
+
+{/* <View style={styles.lasticon}>
+<TouchableOpacity 
+  style={styles.iconButton} 
+  onPress={() => this.RBSheet.open()} >
+  <Icon
+    name={"emoticon-happy-outline"}
+    size={34}
+    color="#606060"
+  />
+</TouchableOpacity>
+</View>
+
+<RBSheet
+ref={ref => {
+  this.RBSheet = ref;
+}}
+height={350}
+duration={250}
+closeOnDragDown={true}
+customStyles={{
+  container: {
+    justifyContent: "center",
+    alignItems: "center"
+  }
+}}
+>
+</RBSheet> */}
