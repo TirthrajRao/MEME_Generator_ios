@@ -94,7 +94,7 @@ export default StyleSheet.create({
     alignItems: "center",
     resizeMode: "cover",
     width: WIDTH,
-    height: 450,
+    height: 400,
     flex: 1
   },
   bottomNavigationView: {

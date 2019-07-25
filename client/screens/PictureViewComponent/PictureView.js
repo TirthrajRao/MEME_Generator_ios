@@ -21,7 +21,6 @@ import AwesomeAlert from "react-native-awesome-alerts";
 import ImagePicker from "react-native-image-picker";
 import RBSheet from "react-native-raw-bottom-sheet";
 import AddedStickers from "../addedStickerComponent/AddedStickers";
-
 import styles from "./pictureViewStyles";
 
 
@@ -45,7 +44,8 @@ class PictureView extends Component {
       stickers: [],
       animation: new Animated.Value(0),
       stickersName: [],
-      visible: true
+      visible: true,
+      
     };
     this.child = React.createRef();
     this.caption = null;
@@ -60,14 +60,16 @@ class PictureView extends Component {
   openCaptionEditor = () => {
     this.setState({
       cEditorEnabled: true,
-      loopCount: this.state.loopCount + 1
+      loopCount: this.state.loopCount + 1,
+      statusButton:false
     });
     this.child.current.addTextInput(this.state.loopCount);
-    
+  
   };
   /** for edit text */
   openCaptionEditorOnPress = () => {
     this.setState({ cEditorEnabled: true });
+
   };
   /** close caption editor */
 
@@ -83,6 +85,7 @@ class PictureView extends Component {
   */
 
   finishEditingCaption = (text, color, existingIndex, font) => {
+    this.setState({statusButton:true})
     this.closeCaptionEditor();
 
     let NewValue = text;

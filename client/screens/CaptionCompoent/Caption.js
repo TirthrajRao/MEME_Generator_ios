@@ -214,9 +214,7 @@ export class Caption extends Component {
       this.state.rotate[index].setOffset(this.state.lastRotate[index]);
       this.state.rotate[index].setValue(0);
 
-      this.state.rotateStr[index] = this.state.rotate[
-        index
-      ].interpolate({
+      this.state.rotateStr[index] = this.state.rotate[index].interpolate({
         inputRange: [-100, 100],
         outputRange: ["-100rad", "100rad"]
       });
@@ -494,106 +492,107 @@ export class Caption extends Component {
   }
 
   render() {
-    // const AnimatedTouchable = Animated.createAnimatedComponent(TouchableOpacity);
+    const AnimatedTouchable = Animated.createAnimatedComponent(
+      TouchableOpacity
+    );
     if (this.props.visible) {
       return (
         <View>
           {/* get text and color in  captionArray*/}
 
-           {/* <TouchableWithoutFeedback onPress = { () => this.onclickFunction()}>  */}
+          {/* <TouchableWithoutFeedback onPress = { () => this.onclickFunction()}> */}
           {this.state.captionArray.map((data, index) => (
-            // <AnimatedTouchable onPress={(index)=>this.onclickFunction(index)}>
-            <View
-            style={{
-              width: "100%",
-              justifyContent: "center",
-              alignItems: "center",
-              position: "absolute"
-            }}
-            >
-              {/* pan Text */}
-              <PanGestureHandler
-                key={index}
-                {...this.props}
-                onGestureEvent={this.state.onPanGestureEventText}
-                onHandlerStateChange={e => this.onPanStateChangeText(e, index)}
-                id={index + "imagedrag"}
-                simultaneousHandlers={[
-                  index + "imagepinch",
-                  index + "imagerotation"
-                ]}
-                shouldCancelWhenOutside={true}
+            // <AnimatedTouchable onPress={index => this.onclickFunction(index)}>
+              <View
+                style={{
+                  width: "100%",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  position: "absolute"
+                }}
               >
-                {/* Rotate Text */}
-                <RotationGestureHandler
+                {/* pan Text */}
+                <PanGestureHandler
                   key={index}
-                  id={index + "imagerotation"}
+                  {...this.props}
+                  onGestureEvent={this.state.onPanGestureEventText}
+                  onHandlerStateChange={e =>
+                    this.onPanStateChangeText(e, index)
+                  }
+                  id={index + "imagedrag"}
                   simultaneousHandlers={[
                     index + "imagepinch",
-                    index + "imagedrag"
+                    index + "imagerotation"
                   ]}
-                  onGestureEvent={this.state.onRotateGestureEventText}
-                  onHandlerStateChange={e =>
-                    this.onRotateHandlerStateChangeText(e, index)
-                  }
+                  shouldCancelWhenOutside={true}
                 >
-                  {/* pinch Text */}
-                  <PinchGestureHandler
+                  {/* Rotate Text */}
+                  <RotationGestureHandler
                     key={index}
-                    id={index + "imagepinch"}
+                    id={index + "imagerotation"}
                     simultaneousHandlers={[
-                      index + "imagerotation",
+                      index + "imagepinch",
                       index + "imagedrag"
                     ]}
-                    onGestureEvent={this.state.onPinchGestureEventText}
+                    onGestureEvent={this.state.onRotateGestureEventText}
                     onHandlerStateChange={e =>
-                      this.onPinchHandlerStateChangeText(e, index)
+                      this.onRotateHandlerStateChangeText(e, index)
                     }
                   >
-                    <Animated.View
+                    {/* pinch Text */}
+                    <PinchGestureHandler
                       key={index}
-                      style={[
-                        styles.stickerContainer,
-                        this.props.style,
-                        {
-                          transform: [
-                            {
-                              translateX: this.state.translateXText[index]
-                            },
-                            { translateY: this.state.translateYText[index] }
-                          ]
-                        }
+                      id={index + "imagepinch"}
+                      simultaneousHandlers={[
+                        index + "imagerotation",
+                        index + "imagedrag"
                       ]}
-                      collapsable={false}
+                      onGestureEvent={this.state.onPinchGestureEventText}
+                      onHandlerStateChange={e =>
+                        this.onPinchHandlerStateChangeText(e, index)
+                      }
                     >
-                 
-
-                      <Animated.Text
+                      <Animated.View
                         key={index}
                         style={[
-                          styles.text,
-                          {
-                            // backgroundColor: bg,
-                            color: data.color,
-                            fontFamily: data.font
-                          },
+                          styles.stickerContainer,
+                          this.props.style,
                           {
                             transform: [
-                              { perspective: 200 },
-                              { scale: this.state.scaleText[index] },
-                              { rotate: this.state.rotateStrText[index] }
+                              {
+                                translateX: this.state.translateXText[index]
+                              },
+                              { translateY: this.state.translateYText[index] }
                             ]
                           }
                         ]}
+                        collapsable={false}
                       >
-                        {data.text}
-                      </Animated.Text>
-                    </Animated.View>
-                  </PinchGestureHandler>
-                </RotationGestureHandler>
-              </PanGestureHandler>
-             
-            </View>
+                        <Animated.Text
+                          key={index}
+                          style={[
+                            styles.text,
+                            {
+                              // backgroundColor: bg,
+                              color: data.color,
+                              fontFamily: data.font
+                            },
+                            {
+                              transform: [
+                                { perspective: 200 },
+                                { scale: this.state.scaleText[index] },
+                                { rotate: this.state.rotateStrText[index] }
+                              ]
+                            }
+                          ]}
+                        >
+                          {data.text}
+                        </Animated.Text>
+                      </Animated.View>
+                    </PinchGestureHandler>
+                  </RotationGestureHandler>
+                </PanGestureHandler>
+              </View>
             // </AnimatedTouchable>
           ))}
           {/* </TouchableWithoutFeedback>    */}

@@ -52,10 +52,10 @@ export default class Editimg extends React.Component {
     this.input = null;
     this.onColorSelected = this.onColorSelected.bind(this);
     this.onChangeText = this.onChangeText.bind(this);
-    this._handleBackPress = this._handleBackPress.bind(this);
     this._keyboardDidShow = this._keyboardDidShow.bind(this);
     this._keyboardDidHide = this._keyboardDidHide.bind(this);
   }
+
 
   componentDidMount = () => {
     if (Platform.OS == "android") {
@@ -71,7 +71,7 @@ export default class Editimg extends React.Component {
       this._keyboardDidHide
     );
 
-    BackHandler.addEventListener("hardwareBackPress", this._handleBackPress);
+  
   };
 
   componentWillUnmount = () => {
@@ -80,14 +80,12 @@ export default class Editimg extends React.Component {
     }
     this.keyboardDidShowListener.remove();
     this.keyboardDidHideListener.remove();
-    BackHandler.removeEventListener("hardwareBackPress", this._handleBackPress);
+   
   };
 
-  /** on Back press call function */
-  _handleBackPress = () => {
-    this._keyboardDidHide();
-    return true;
-  };
+ 
+
+
   _keyboardDidShow = () => {};
   /** on Back press set text, color and existingIndex */
   _keyboardDidHide = () => {
@@ -114,7 +112,7 @@ export default class Editimg extends React.Component {
 
   /** @param {string} color selected color  */
   onColorSelected = color => {
-    console.log("========call")
+    console.log("========call");
     var bg;
     bg = color == "#000000" ? FADEDWHITE : FADEDBLACK;
     let existingColor = this.state.color;
@@ -342,25 +340,25 @@ export default class Editimg extends React.Component {
   /** display color bar */
   renderColorBar = () => {
     return (
-   
-        <View
-          style={{
-            width: 150,
-            height: 150,
-            position: "absolute",
-            bottom: 0,
-            right: 0,
-            paddingRight: 15,
-            paddingBottom: 15,
-          }}
-        >
-          <ColorPicker
-            onColorSelected={color => this.onColorSelected(color)}
-            style={{ flex: 1 }}
-          />
-        </View>
-
-    
+      <View
+        style={{
+          width: "100%",
+          height: 150,
+          position: "absolute",
+          marginTop: 300,
+          bottom: 0,
+          right: 0,
+          left: 0,
+          paddingRight: 15,
+          paddingBottom: 15,
+          marginTop: 10
+        }}
+      >
+        <ColorPicker
+          onColorSelected={color => this.onColorSelected(color)}
+          style={{ flex: 1 }}
+        />
+      </View>
     );
   };
   /** @param {Number} key : Number , addTextInput function call from picture view and key is loopcount */
@@ -399,6 +397,11 @@ export default class Editimg extends React.Component {
             ]}
           >
             <View style={styles.textInputView}>
+              <View style={styles.doneBtn}>
+                <TouchableOpacity onPress={()=> this._keyboardDidHide()}>
+                <Text style={styles.doneText}>Done</Text>
+                </TouchableOpacity>
+              </View>
               {len > 0 ? this.renderFontBar() : null}
               {len > 0 ? this.renderColorBar() : null}
 
@@ -447,4 +450,3 @@ Editimg.defaultProps = {
   onFinish: () => {},
   enabled: false
 };
-
