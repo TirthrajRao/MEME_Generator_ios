@@ -129,7 +129,7 @@ MERGED from [com.facebook.soloader:soloader:0.6.0] /home/rao/.gradle/caches/tran
 	android:roundIcon
 		ADDED from /var/www/html/MEME_Generator_ios_v2/client/android/app/src/main/AndroidManifest.xml:20:7-52
 	android:icon
-		ADDED from /var/www/html/MEME_Generator_ios_v2/client/android/app/src/main/AndroidManifest.xml:19:7-36
+		ADDED from /var/www/html/MEME_Generator_ios_v2/client/android/app/src/main/AndroidManifest.xml:19:7-37
 	android:allowBackup
 		ADDED from /var/www/html/MEME_Generator_ios_v2/client/android/app/src/main/AndroidManifest.xml:21:7-34
 	android:theme

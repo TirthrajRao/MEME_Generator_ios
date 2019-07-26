@@ -48,7 +48,7 @@ class MenuDrawer extends React.Component {
                 size={25}
                 style={{ marginTop: 15, color: "white", marginLeft: 10 }}
               />
-              {this.navLink("AddImage", "Add Image")}
+              {this.navLink("AddImage", "Home")}
             </View>
             <View style={{ flex: 2, flexDirection: "row" }}>
               <Icons

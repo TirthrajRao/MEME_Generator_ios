@@ -23,7 +23,8 @@ import {
   FONTS
 } from "../CaptionCompoent/Caption";
 import styles from "./editimgstyles";
-import { ColorPicker } from "react-native-color-picker";
+import { ColorPicker, toHsv } from 'react-native-color-picker'
+import tinycolor from 'tinycolor2'; 
 
 /** on click outside DismissKeyboard */
 
@@ -53,9 +54,8 @@ export default class Editimg extends React.Component {
     this.onColorSelected = this.onColorSelected.bind(this);
     this.onChangeText = this.onChangeText.bind(this);
     this._keyboardDidShow = this._keyboardDidShow.bind(this);
-    this._keyboardDidHide = this._keyboardDidHide.bind(this);
+    // this._keyboardDidHide = this._keyboardDidHide.bind(this);
   }
-
 
   componentDidMount = () => {
     if (Platform.OS == "android") {
@@ -66,12 +66,10 @@ export default class Editimg extends React.Component {
       "keyboardDidShow",
       this._keyboardDidShow
     );
-    this.keyboardDidHideListener = Keyboard.addListener(
-      "keyboardDidHide",
-      this._keyboardDidHide
-    );
-
-  
+    // this.keyboardDidHideListener = Keyboard.addListener(
+    //   "keyboardDidHide",
+    //   this._keyboardDidHide
+    // );
   };
 
   componentWillUnmount = () => {
@@ -79,12 +77,8 @@ export default class Editimg extends React.Component {
       AndroidKeyboardAdjust.setAdjustResize();
     }
     this.keyboardDidShowListener.remove();
-    this.keyboardDidHideListener.remove();
-   
+    // this.keyboardDidHideListener.remove();
   };
-
- 
-
 
   _keyboardDidShow = () => {};
   /** on Back press set text, color and existingIndex */
@@ -99,7 +93,6 @@ export default class Editimg extends React.Component {
       this.state.fontStyle
     );
   };
-
   /** @param {string} newText add  text  */
   onChangeText = (newText, index) => {
     const ExistingText = this.state.text;
@@ -109,15 +102,15 @@ export default class Editimg extends React.Component {
       backgroundColor: this.state.color == "#000000" ? FADEDWHITE : FADEDBLACK
     });
   };
-
   /** @param {string} color selected color  */
   onColorSelected = color => {
-    console.log("========call");
+    let colors =  tinycolor(color).toHexString()
     var bg;
-    bg = color == "#000000" ? FADEDWHITE : FADEDBLACK;
+    bg = colors == "#000000" ? FADEDWHITE : FADEDBLACK;
     let existingColor = this.state.color;
-    existingColor[this.state.existingIndex] = color;
+    existingColor[this.state.existingIndex] = colors;
     this.setState({ color: existingColor, backgroundColor: bg });
+    console.log(this.state.color,"========call",color);
   };
 
   /** @param {string}  selectedValue: selected font*/
@@ -337,7 +330,7 @@ export default class Editimg extends React.Component {
     );
   };
 
-  /** display color bar */
+  /** display color picker */
   renderColorBar = () => {
     return (
       <View
@@ -355,7 +348,7 @@ export default class Editimg extends React.Component {
         }}
       >
         <ColorPicker
-          onColorSelected={color => this.onColorSelected(color)}
+          onColorChange={color => this.onColorSelected(color)}
           style={{ flex: 1 }}
         />
       </View>
@@ -398,8 +391,8 @@ export default class Editimg extends React.Component {
           >
             <View style={styles.textInputView}>
               <View style={styles.doneBtn}>
-                <TouchableOpacity onPress={()=> this._keyboardDidHide()}>
-                <Text style={styles.doneText}>Done</Text>
+                <TouchableOpacity onPress={() => this._keyboardDidHide()}>
+                  <Text style={styles.doneText}>Done</Text>
                 </TouchableOpacity>
               </View>
               {len > 0 ? this.renderFontBar() : null}

@@ -20639,6 +20639,7 @@ com.snapchat.R$drawable: int abc_textfield_search_default_mtrl_alpha
 com.snapchat.R$drawable: int abc_textfield_search_material
 com.snapchat.R$drawable: int abc_vector_test
 com.snapchat.R$drawable: int assets_logo
+com.snapchat.R$drawable: int assets_logo2
 com.snapchat.R$drawable: int exo_controls_fastforward
 com.snapchat.R$drawable: int exo_controls_fullscreen_enter
 com.snapchat.R$drawable: int exo_controls_fullscreen_exit
@@ -20668,6 +20669,9 @@ com.snapchat.R$drawable: int exo_notification_rewind
 com.snapchat.R$drawable: int exo_notification_small_icon
 com.snapchat.R$drawable: int exo_notification_stop
 com.snapchat.R$drawable: int logo
+com.snapchat.R$drawable: int logo2
+com.snapchat.R$drawable: int node_modules_reactnativecolorpicker_resources_colorcircle
+com.snapchat.R$drawable: int node_modules_reactnativecolorpicker_resources_hsv_triangle_mask
 com.snapchat.R$drawable: int node_modules_reactnavigationstack_lib_module_views_assets_backicon
 com.snapchat.R$drawable: int node_modules_reactnavigationstack_lib_module_views_assets_backiconmask
 com.snapchat.R$drawable: int notification_action_background

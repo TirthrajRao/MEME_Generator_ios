@@ -121,6 +121,8 @@ export default class ShowStickers extends React.Component {
             this.props.navigation.state.params.data
           }`;
 
+          console.log("==========",absolutePath)
+
     RNFS.mkdir(absolutePath)
       .then(result => {
         this.actualDownload();

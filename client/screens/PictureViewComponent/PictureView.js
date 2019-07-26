@@ -8,7 +8,8 @@ import {
   Image,
   Animated,
   Platform,
-  Alert
+  Alert,
+  Linking
 } from "react-native";
 import PropTypes from "prop-types";
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
@@ -205,7 +206,6 @@ class PictureView extends Component {
       //let name = uri.split("/")[15]; // for emulator
       let name = uri.split("/")[10];  // for device
       console.log("---------uri", name);
-      let url = uri;
       let dirs = `${RNFS.DocumentDirectoryPath}/MEME_Generator/SavePictures`;
       const file_path = dirs + "/" + name;
 
@@ -234,7 +234,6 @@ class PictureView extends Component {
   */
   stickersandemoji = item => {
     this.RBSheet.close();
-
     let existinSticker = this.state.stickersName;
     existinSticker.push(item);
     this.setState({ stickersName: existinSticker });
@@ -260,6 +259,9 @@ class PictureView extends Component {
     this.closeCaptionEditor();
     this.props.onCancel();
   };
+  link(){
+    Linking.openURL('https://play.google.com/store/apps/details?id=com.bitstrips.imoji&hl=en');
+  }
 
   render() {
     const { navigation } = this.props;
@@ -305,11 +307,11 @@ class PictureView extends Component {
                       />
                     </TouchableOpacity>
                   </View>
-
                   <View style={styles.cameraIcon}>
                     <TouchableOpacity
                       style={styles.iconButton}
-                      onPress={() => this._pickImage("image")}
+                      onPress={() => this.link()}
+                      // onPress={() => this._pickImage("image")}
                     >
                       <Icon name={"camera"} size={34} color="#606060" />
                     </TouchableOpacity>
@@ -348,11 +350,7 @@ class PictureView extends Component {
                       propsfunction={this.stickersandemoji.bind(this)}
                     />
                   </RBSheet>
-
-
                 </Header>
-
-             
               </View>
             ) : null}
           </View>

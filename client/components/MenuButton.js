@@ -1,6 +1,5 @@
 import React from "react";
 import { StyleSheet , Platform } from "react-native";
-// import { Ionicons } from '@expo/vector-icons'
 import Icon from "react-native-vector-icons/MaterialIcons";
 
 export default class MenuButton extends React.Component {
