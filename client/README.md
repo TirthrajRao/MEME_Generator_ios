@@ -76,7 +76,7 @@ React-native - The web framework used
 - [Getting-Started](#Getting-Started)
 - [Dependancies](#Dependancies)
 ## About this Project
-### What is PHOTOSHARING?
+### What is MEME Generator?
  
 * User can load new image from his/her mobile phone from add image screen.
 * Once the user picks up an image from mobile, the user can add two texts(Top and bottom text) on the loaded image into add text screen. From this screen, the user can change the image as well. 
