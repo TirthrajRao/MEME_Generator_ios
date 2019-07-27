@@ -75,7 +75,7 @@ class PictureView extends Component {
   /** close caption editor */
 
   closeCaptionEditor = () => {
-    this.setState({ cEditorEnabled: false });
+    this.setState({ cEditorEnabled: false , statusButton:true });
   };
 
   /**
@@ -87,6 +87,7 @@ class PictureView extends Component {
 
   finishEditingCaption = (text, color, existingIndex, font) => {
     this.setState({statusButton:true})
+
     this.closeCaptionEditor();
 
     let NewValue = text;
@@ -99,10 +100,12 @@ class PictureView extends Component {
       existingIndex: existingIndex,
       font: NewFont
     });
+
   };
   /** 
    * setState image from Add image screen and saved image screen
-   *  get image in paramas */
+   *  get image in paramas 
+   */
   componentDidMount = () => {
     this.setState({
       images: this.props.navigation.state.params.image, // from AddImage screen 
@@ -245,7 +248,7 @@ class PictureView extends Component {
     this.RBSheet.close();
   };
 
-  /** on click cancle edited text, color, Font, Stickers removed */
+  /**                              on click cancle edited text, color, Font, Stickers removed */
   onCancel = () => {
     console.log("call oncancle function ");
     this.setState({
@@ -363,6 +366,7 @@ class PictureView extends Component {
             enabled={this.state.cEditorEnabled}
             loopCount={this.state.loopCount}
             style={styles.captionEditor}
+            onCancelText={this.props}
           />
           <Caption
             ref={ref => {

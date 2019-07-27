@@ -99,7 +99,7 @@ export default class AddedStickers extends React.Component {
       .catch(err => {
         console.log("Error",err)
         this.setState({ error: err.code });
-        Toast.show(" Folder does not exist");
+       
       });
   }
   render() {

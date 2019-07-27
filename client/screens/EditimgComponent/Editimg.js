@@ -23,8 +23,8 @@ import {
   FONTS
 } from "../CaptionCompoent/Caption";
 import styles from "./editimgstyles";
-import { ColorPicker, toHsv } from 'react-native-color-picker'
-import tinycolor from 'tinycolor2'; 
+import { ColorPicker, toHsv } from "react-native-color-picker";
+import tinycolor from "tinycolor2";
 
 /** on click outside DismissKeyboard */
 
@@ -41,10 +41,8 @@ export default class Editimg extends React.Component {
       image: undefined,
       backgroundColor: "transparent",
       textInput: [],
-      totalText: 0,
       color: [],
       text: [],
-      onChangeValue: "",
       existingIndex: -1,
       newText: [],
       fontStyle: []
@@ -66,10 +64,11 @@ export default class Editimg extends React.Component {
       "keyboardDidShow",
       this._keyboardDidShow
     );
-    // this.keyboardDidHideListener = Keyboard.addListener(
-    //   "keyboardDidHide",
-    //   this._keyboardDidHide
-    // );
+
+    this.backHandler = BackHandler.addEventListener(
+      "hardwareBackPress",
+      this.handleBackPress
+    );
   };
 
   componentWillUnmount = () => {
@@ -77,7 +76,20 @@ export default class Editimg extends React.Component {
       AndroidKeyboardAdjust.setAdjustResize();
     }
     this.keyboardDidShowListener.remove();
-    // this.keyboardDidHideListener.remove();
+    this.backHandler.remove();
+  };
+  handleBackPress = async () => {
+    await this.props.onCancel();
+    console.log("call cancel function=====", this.props.statusButton);
+    this.setState({
+      textInput: [],
+      color: [],
+      text: [],
+      existingIndex: -1,
+      newText: [],
+      fontStyle: []
+    });
+    console.log("call cancel function=====", this.state);
   };
 
   _keyboardDidShow = () => {};
@@ -86,6 +98,7 @@ export default class Editimg extends React.Component {
     if (this.state.text.length == 0) {
       this.props.onCancel();
     }
+
     this.props.onFinish(
       this.state.text,
       this.state.color,
@@ -93,7 +106,11 @@ export default class Editimg extends React.Component {
       this.state.fontStyle
     );
   };
-  /** @param {string} newText add  text  */
+
+  /**
+   *  @param {string} newText add  text
+   *  @param {number} index
+   */
   onChangeText = (newText, index) => {
     const ExistingText = this.state.text;
     ExistingText[index] = newText;
@@ -104,13 +121,12 @@ export default class Editimg extends React.Component {
   };
   /** @param {string} color selected color  */
   onColorSelected = color => {
-    let colors =  tinycolor(color).toHexString()
+    let colors = tinycolor(color).toHexString();
     var bg;
     bg = colors == "#000000" ? FADEDWHITE : FADEDBLACK;
     let existingColor = this.state.color;
     existingColor[this.state.existingIndex] = colors;
     this.setState({ color: existingColor, backgroundColor: bg });
-    console.log(this.state.color,"========call",color);
   };
 
   /** @param {string}  selectedValue: selected font*/
@@ -354,7 +370,9 @@ export default class Editimg extends React.Component {
       </View>
     );
   };
-  /** @param {Number} key : Number , addTextInput function call from picture view and key is loopcount */
+  /**
+   * @param {Number} key : Number , addTextInput function call from picture view and key is loopcount
+   */
 
   addTextInput = key => {
     let textInput = this.state.textInput;
@@ -379,6 +397,8 @@ export default class Editimg extends React.Component {
 
   render() {
     let len = this.state.text.length;
+    const { navigation } = this.props.onCancelText;
+    console.log("in render=====", this.state.text.length);
 
     if (this.props.enabled) {
       return (
@@ -395,6 +415,7 @@ export default class Editimg extends React.Component {
                   <Text style={styles.doneText}>Done</Text>
                 </TouchableOpacity>
               </View>
+
               {len > 0 ? this.renderFontBar() : null}
               {len > 0 ? this.renderColorBar() : null}
 

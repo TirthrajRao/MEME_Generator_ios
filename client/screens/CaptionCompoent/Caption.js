@@ -573,7 +573,6 @@ export class Caption extends Component {
                           style={[
                             styles.text,
                             {
-                              // backgroundColor: bg,
                               color: data.color,
                               fontFamily: data.font
                             },

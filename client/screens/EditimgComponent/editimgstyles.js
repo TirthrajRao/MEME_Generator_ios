@@ -94,10 +94,27 @@ export default StyleSheet.create({
     width: 60,
     alignItems: "center"
   },
+  doneBtn1: {
+    position: "absolute",
+    top: 0,
+    right: 45,
+    paddingTop: 15,
+    width: 60,
+    alignItems: "center"
+  },
+  
   doneText:{
     color:'black',
     fontSize:18,
     fontWeight:'bold',
+  },
+  cancelBtn:{
+    position: "absolute",
+    top: 0,
+    left: 10,
+    paddingLeft: 15,
+    paddingTop: 15,
+    zIndex: 1
   }
 
 });
