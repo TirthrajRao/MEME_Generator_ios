@@ -6,12 +6,10 @@ export default StyleSheet.create({
     backgroundColor: "#fff"
   },
   card: {
-    
     flexDirection: "row",
-  
     borderBottomWidth: 2,
     borderBottomColor: '#e7e7e7',
-    padding: 10
+    padding: 10,
   },
   iconButton: {
     height: 35,

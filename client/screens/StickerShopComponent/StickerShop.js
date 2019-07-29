@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import {
   View,
   Text,
@@ -19,6 +19,7 @@ import { Header } from "native-base";
 import Api from "../../service";
 
 export default class StickerShop extends React.Component {
+
   constructor(props) {
     super(props);
 
@@ -141,7 +142,7 @@ export default class StickerShop extends React.Component {
         ? `/storage/emulated/0/MEME_Generator/` + data
         : `${RNFS.DocumentDirectoryPath}/MEME_Generator/Stickers/` + data;
     console.log("------android----ios-----", absolutePath);
-    // const absolutePath = `/storage/emulated/0/MEME_Generator/` + data;
+   
 
     RNFS.mkdir(absolutePath)
       .then(result => {
@@ -152,7 +153,8 @@ export default class StickerShop extends React.Component {
       });
   }
 
-  /**  download stickers in folder in device
+  /**
+   * download stickers in folder in device
    * @param {string} data: name of category
    */
   actualDownload = data => {

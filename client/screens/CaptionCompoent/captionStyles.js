@@ -1,5 +1,5 @@
 import { StyleSheet } from "react-native";
-const imageSize = 250
+const imageSize = 280
 const stickerCanvasSize = imageSize * 2
 export default StyleSheet.create({
   container: {

@@ -16,16 +16,16 @@
         "source": "/home/rao/.gradle/caches/transforms-1/files-1.1/exoplayer-ui-2.9.3.aar/a70f6ce3be68f2a10ad9ce40828d397e/res/drawable-hdpi-v4/exo_controls_fullscreen_enter.png"
     },
     {
-        "merged": "/var/www/html/MEME_Generator_ios_v2/client/android/app/build/intermediates/res/merged/debug/color_abc_tint_default.xml.flat",
-        "source": "/home/rao/.gradle/caches/transforms-1/files-1.1/appcompat-v7-28.0.0.aar/c0170fd72d169111b396d8ae2d5bffb8/res/color/abc_tint_default.xml"
+        "merged": "/var/www/html/MEME_Generator_ios_v2/client/android/app/build/intermediates/res/merged/debug/drawable_logo.png.flat",
+        "source": "/var/www/html/MEME_Generator_ios_v2/client/android/app/src/main/res/drawable/logo.png"
     },
     {
         "merged": "/var/www/html/MEME_Generator_ios_v2/client/android/app/build/intermediates/res/merged/debug/drawable-anydpi-v21_exo_controls_fullscreen_exit.xml.flat",
         "source": "/home/rao/.gradle/caches/transforms-1/files-1.1/exoplayer-ui-2.9.3.aar/a70f6ce3be68f2a10ad9ce40828d397e/res/drawable-anydpi-v21/exo_controls_fullscreen_exit.xml"
     },
     {
-        "merged": "/var/www/html/MEME_Generator_ios_v2/client/android/app/build/intermediates/res/merged/debug/drawable_logo.png.flat",
-        "source": "/var/www/html/MEME_Generator_ios_v2/client/android/app/src/main/res/drawable/logo.png"
+        "merged": "/var/www/html/MEME_Generator_ios_v2/client/android/app/build/intermediates/res/merged/debug/color_abc_tint_default.xml.flat",
+        "source": "/home/rao/.gradle/caches/transforms-1/files-1.1/appcompat-v7-28.0.0.aar/c0170fd72d169111b396d8ae2d5bffb8/res/color/abc_tint_default.xml"
     },
     {
         "merged": "/var/www/html/MEME_Generator_ios_v2/client/android/app/build/intermediates/res/merged/debug/drawable-xxhdpi-v4_abc_list_pressed_holo_dark.9.png.flat",
@@ -64,12 +64,12 @@
         "source": "/home/rao/.gradle/caches/transforms-1/files-1.1/exoplayer-ui-2.9.3.aar/a70f6ce3be68f2a10ad9ce40828d397e/res/drawable-anydpi-v21/exo_controls_repeat_all.xml"
     },
     {
-        "merged": "/var/www/html/MEME_Generator_ios_v2/client/android/app/build/intermediates/res/merged/debug/drawable-mdpi-v4_abc_switch_track_mtrl_alpha.9.png.flat",
-        "source": "/home/rao/.gradle/caches/transforms-1/files-1.1/appcompat-v7-28.0.0.aar/c0170fd72d169111b396d8ae2d5bffb8/res/drawable-mdpi-v4/abc_switch_track_mtrl_alpha.9.png"
-    },
-    {
         "merged": "/var/www/html/MEME_Generator_ios_v2/client/android/app/build/intermediates/res/merged/debug/mipmap-xhdpi_ic_launcher_round.png.flat",
         "source": "/var/www/html/MEME_Generator_ios_v2/client/android/app/src/main/res/mipmap-xhdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "/var/www/html/MEME_Generator_ios_v2/client/android/app/build/intermediates/res/merged/debug/drawable-mdpi-v4_abc_switch_track_mtrl_alpha.9.png.flat",
+        "source": "/home/rao/.gradle/caches/transforms-1/files-1.1/appcompat-v7-28.0.0.aar/c0170fd72d169111b396d8ae2d5bffb8/res/drawable-mdpi-v4/abc_switch_track_mtrl_alpha.9.png"
     },
     {
         "merged": "/var/www/html/MEME_Generator_ios_v2/client/android/app/build/intermediates/res/merged/debug/drawable-hdpi-v4_abc_ic_star_half_black_16dp.png.flat",
@@ -140,12 +140,12 @@
         "source": "/home/rao/.gradle/caches/transforms-1/files-1.1/exoplayer-ui-2.9.3.aar/a70f6ce3be68f2a10ad9ce40828d397e/res/drawable-xxhdpi-v4/exo_icon_play.png"
     },
     {
-        "merged": "/var/www/html/MEME_Generator_ios_v2/client/android/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4_exo_icon_previous.png.flat",
-        "source": "/home/rao/.gradle/caches/transforms-1/files-1.1/exoplayer-ui-2.9.3.aar/a70f6ce3be68f2a10ad9ce40828d397e/res/drawable-xhdpi-v4/exo_icon_previous.png"
-    },
-    {
         "merged": "/var/www/html/MEME_Generator_ios_v2/client/android/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4_exo_controls_repeat_all.png.flat",
         "source": "/home/rao/.gradle/caches/transforms-1/files-1.1/exoplayer-ui-2.9.3.aar/a70f6ce3be68f2a10ad9ce40828d397e/res/drawable-xhdpi-v4/exo_controls_repeat_all.png"
+    },
+    {
+        "merged": "/var/www/html/MEME_Generator_ios_v2/client/android/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4_exo_icon_previous.png.flat",
+        "source": "/home/rao/.gradle/caches/transforms-1/files-1.1/exoplayer-ui-2.9.3.aar/a70f6ce3be68f2a10ad9ce40828d397e/res/drawable-xhdpi-v4/exo_icon_previous.png"
     },
     {
         "merged": "/var/www/html/MEME_Generator_ios_v2/client/android/app/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4_abc_btn_switch_to_on_mtrl_00012.9.png.flat",
@@ -164,12 +164,12 @@
         "source": "/home/rao/.gradle/caches/transforms-1/files-1.1/appcompat-v7-28.0.0.aar/c0170fd72d169111b396d8ae2d5bffb8/res/drawable-hdpi-v4/abc_textfield_activated_mtrl_alpha.9.png"
     },
     {
-        "merged": "/var/www/html/MEME_Generator_ios_v2/client/android/app/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4_abc_ic_star_half_black_16dp.png.flat",
-        "source": "/home/rao/.gradle/caches/transforms-1/files-1.1/appcompat-v7-28.0.0.aar/c0170fd72d169111b396d8ae2d5bffb8/res/drawable-xxxhdpi-v4/abc_ic_star_half_black_16dp.png"
-    },
-    {
         "merged": "/var/www/html/MEME_Generator_ios_v2/client/android/app/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4_abc_scrubber_control_to_pressed_mtrl_005.png.flat",
         "source": "/home/rao/.gradle/caches/transforms-1/files-1.1/appcompat-v7-28.0.0.aar/c0170fd72d169111b396d8ae2d5bffb8/res/drawable-xxxhdpi-v4/abc_scrubber_control_to_pressed_mtrl_005.png"
+    },
+    {
+        "merged": "/var/www/html/MEME_Generator_ios_v2/client/android/app/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4_abc_ic_star_half_black_16dp.png.flat",
+        "source": "/home/rao/.gradle/caches/transforms-1/files-1.1/appcompat-v7-28.0.0.aar/c0170fd72d169111b396d8ae2d5bffb8/res/drawable-xxxhdpi-v4/abc_ic_star_half_black_16dp.png"
     },
     {
         "merged": "/var/www/html/MEME_Generator_ios_v2/client/android/app/build/intermediates/res/merged/debug/drawable-mdpi-v4_abc_scrubber_control_off_mtrl_alpha.png.flat",
@@ -196,12 +196,12 @@
         "source": "/home/rao/.gradle/caches/transforms-1/files-1.1/exoplayer-ui-2.9.3.aar/a70f6ce3be68f2a10ad9ce40828d397e/res/drawable-anydpi-v21/exo_icon_play.xml"
     },
     {
-        "merged": "/var/www/html/MEME_Generator_ios_v2/client/android/app/build/intermediates/res/merged/debug/drawable-mdpi-v4_abc_ic_menu_selectall_mtrl_alpha.png.flat",
-        "source": "/home/rao/.gradle/caches/transforms-1/files-1.1/appcompat-v7-28.0.0.aar/c0170fd72d169111b396d8ae2d5bffb8/res/drawable-mdpi-v4/abc_ic_menu_selectall_mtrl_alpha.png"
-    },
-    {
         "merged": "/var/www/html/MEME_Generator_ios_v2/client/android/app/build/intermediates/res/merged/debug/anim_catalyst_fade_in.xml.flat",
         "source": "/home/rao/.gradle/caches/transforms-1/files-1.1/react-native-0.59.8.aar/8d13bd86d09f2a253fe2b265561d058e/res/anim/catalyst_fade_in.xml"
+    },
+    {
+        "merged": "/var/www/html/MEME_Generator_ios_v2/client/android/app/build/intermediates/res/merged/debug/drawable-mdpi-v4_abc_ic_menu_selectall_mtrl_alpha.png.flat",
+        "source": "/home/rao/.gradle/caches/transforms-1/files-1.1/appcompat-v7-28.0.0.aar/c0170fd72d169111b396d8ae2d5bffb8/res/drawable-mdpi-v4/abc_ic_menu_selectall_mtrl_alpha.png"
     },
     {
         "merged": "/var/www/html/MEME_Generator_ios_v2/client/android/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4_abc_ic_star_black_16dp.png.flat",
@@ -212,12 +212,12 @@
         "source": "/home/rao/.gradle/caches/transforms-1/files-1.1/appcompat-v7-28.0.0.aar/c0170fd72d169111b396d8ae2d5bffb8/res/drawable-xxhdpi-v4/abc_btn_check_to_on_mtrl_015.png"
     },
     {
-        "merged": "/var/www/html/MEME_Generator_ios_v2/client/android/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4_abc_scrubber_control_off_mtrl_alpha.png.flat",
-        "source": "/home/rao/.gradle/caches/transforms-1/files-1.1/appcompat-v7-28.0.0.aar/c0170fd72d169111b396d8ae2d5bffb8/res/drawable-xhdpi-v4/abc_scrubber_control_off_mtrl_alpha.png"
-    },
-    {
         "merged": "/var/www/html/MEME_Generator_ios_v2/client/android/app/build/intermediates/res/merged/debug/drawable-ldpi-v4_exo_icon_stop.png.flat",
         "source": "/home/rao/.gradle/caches/transforms-1/files-1.1/exoplayer-ui-2.9.3.aar/a70f6ce3be68f2a10ad9ce40828d397e/res/drawable-ldpi-v4/exo_icon_stop.png"
+    },
+    {
+        "merged": "/var/www/html/MEME_Generator_ios_v2/client/android/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4_abc_scrubber_control_off_mtrl_alpha.png.flat",
+        "source": "/home/rao/.gradle/caches/transforms-1/files-1.1/appcompat-v7-28.0.0.aar/c0170fd72d169111b396d8ae2d5bffb8/res/drawable-xhdpi-v4/abc_scrubber_control_off_mtrl_alpha.png"
     },
     {
         "merged": "/var/www/html/MEME_Generator_ios_v2/client/android/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4_abc_scrubber_control_to_pressed_mtrl_005.png.flat",
@@ -328,12 +328,12 @@
         "source": "/home/rao/.gradle/caches/transforms-1/files-1.1/exoplayer-ui-2.9.3.aar/a70f6ce3be68f2a10ad9ce40828d397e/res/drawable-xxhdpi-v4/exo_notification_small_icon.png"
     },
     {
-        "merged": "/var/www/html/MEME_Generator_ios_v2/client/android/app/build/intermediates/res/merged/debug/drawable-xxhdpi-v4_abc_menu_hardkey_panel_mtrl_mult.9.png.flat",
-        "source": "/home/rao/.gradle/caches/transforms-1/files-1.1/appcompat-v7-28.0.0.aar/c0170fd72d169111b396d8ae2d5bffb8/res/drawable-xxhdpi-v4/abc_menu_hardkey_panel_mtrl_mult.9.png"
-    },
-    {
         "merged": "/var/www/html/MEME_Generator_ios_v2/client/android/app/build/intermediates/res/merged/debug/drawable-mdpi-v4_exo_controls_repeat_all.png.flat",
         "source": "/home/rao/.gradle/caches/transforms-1/files-1.1/exoplayer-ui-2.9.3.aar/a70f6ce3be68f2a10ad9ce40828d397e/res/drawable-mdpi-v4/exo_controls_repeat_all.png"
+    },
+    {
+        "merged": "/var/www/html/MEME_Generator_ios_v2/client/android/app/build/intermediates/res/merged/debug/drawable-xxhdpi-v4_abc_menu_hardkey_panel_mtrl_mult.9.png.flat",
+        "source": "/home/rao/.gradle/caches/transforms-1/files-1.1/appcompat-v7-28.0.0.aar/c0170fd72d169111b396d8ae2d5bffb8/res/drawable-xxhdpi-v4/abc_menu_hardkey_panel_mtrl_mult.9.png"
     },
     {
         "merged": "/var/www/html/MEME_Generator_ios_v2/client/android/app/build/intermediates/res/merged/debug/drawable-ldpi-v4_exo_icon_next.png.flat",
@@ -420,12 +420,12 @@
         "source": "/home/rao/.gradle/caches/transforms-1/files-1.1/appcompat-v7-28.0.0.aar/c0170fd72d169111b396d8ae2d5bffb8/res/color/abc_tint_switch_track.xml"
     },
     {
-        "merged": "/var/www/html/MEME_Generator_ios_v2/client/android/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4_abc_ic_menu_selectall_mtrl_alpha.png.flat",
-        "source": "/home/rao/.gradle/caches/transforms-1/files-1.1/appcompat-v7-28.0.0.aar/c0170fd72d169111b396d8ae2d5bffb8/res/drawable-xhdpi-v4/abc_ic_menu_selectall_mtrl_alpha.png"
-    },
-    {
         "merged": "/var/www/html/MEME_Generator_ios_v2/client/android/app/build/intermediates/res/merged/debug/drawable-mdpi-v4_abc_btn_switch_to_on_mtrl_00012.9.png.flat",
         "source": "/home/rao/.gradle/caches/transforms-1/files-1.1/appcompat-v7-28.0.0.aar/c0170fd72d169111b396d8ae2d5bffb8/res/drawable-mdpi-v4/abc_btn_switch_to_on_mtrl_00012.9.png"
+    },
+    {
+        "merged": "/var/www/html/MEME_Generator_ios_v2/client/android/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4_abc_ic_menu_selectall_mtrl_alpha.png.flat",
+        "source": "/home/rao/.gradle/caches/transforms-1/files-1.1/appcompat-v7-28.0.0.aar/c0170fd72d169111b396d8ae2d5bffb8/res/drawable-xhdpi-v4/abc_ic_menu_selectall_mtrl_alpha.png"
     },
     {
         "merged": "/var/www/html/MEME_Generator_ios_v2/client/android/app/build/intermediates/res/merged/debug/color_abc_btn_colored_borderless_text_material.xml.flat",
@@ -440,12 +440,12 @@
         "source": "/home/rao/.gradle/caches/transforms-1/files-1.1/appcompat-v7-28.0.0.aar/c0170fd72d169111b396d8ae2d5bffb8/res/drawable-mdpi-v4/abc_list_divider_mtrl_alpha.9.png"
     },
     {
-        "merged": "/var/www/html/MEME_Generator_ios_v2/client/android/app/build/intermediates/res/merged/debug/color-v23_abc_btn_colored_text_material.xml.flat",
-        "source": "/home/rao/.gradle/caches/transforms-1/files-1.1/appcompat-v7-28.0.0.aar/c0170fd72d169111b396d8ae2d5bffb8/res/color-v23/abc_btn_colored_text_material.xml"
-    },
-    {
         "merged": "/var/www/html/MEME_Generator_ios_v2/client/android/app/build/intermediates/res/merged/debug/drawable-xxhdpi-v4_abc_spinner_mtrl_am_alpha.9.png.flat",
         "source": "/home/rao/.gradle/caches/transforms-1/files-1.1/appcompat-v7-28.0.0.aar/c0170fd72d169111b396d8ae2d5bffb8/res/drawable-xxhdpi-v4/abc_spinner_mtrl_am_alpha.9.png"
+    },
+    {
+        "merged": "/var/www/html/MEME_Generator_ios_v2/client/android/app/build/intermediates/res/merged/debug/color-v23_abc_btn_colored_text_material.xml.flat",
+        "source": "/home/rao/.gradle/caches/transforms-1/files-1.1/appcompat-v7-28.0.0.aar/c0170fd72d169111b396d8ae2d5bffb8/res/color-v23/abc_btn_colored_text_material.xml"
     },
     {
         "merged": "/var/www/html/MEME_Generator_ios_v2/client/android/app/build/intermediates/res/merged/debug/drawable-v21_abc_btn_colored_material.xml.flat",
@@ -608,12 +608,12 @@
         "source": "/home/rao/.gradle/caches/transforms-1/files-1.1/exoplayer-ui-2.9.3.aar/a70f6ce3be68f2a10ad9ce40828d397e/res/drawable-ldpi-v4/exo_controls_repeat_all.png"
     },
     {
-        "merged": "/var/www/html/MEME_Generator_ios_v2/client/android/app/build/intermediates/res/merged/debug/drawable-xxhdpi-v4_abc_list_selector_disabled_holo_dark.9.png.flat",
-        "source": "/home/rao/.gradle/caches/transforms-1/files-1.1/appcompat-v7-28.0.0.aar/c0170fd72d169111b396d8ae2d5bffb8/res/drawable-xxhdpi-v4/abc_list_selector_disabled_holo_dark.9.png"
-    },
-    {
         "merged": "/var/www/html/MEME_Generator_ios_v2/client/android/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4_abc_list_focused_holo.9.png.flat",
         "source": "/home/rao/.gradle/caches/transforms-1/files-1.1/appcompat-v7-28.0.0.aar/c0170fd72d169111b396d8ae2d5bffb8/res/drawable-xhdpi-v4/abc_list_focused_holo.9.png"
+    },
+    {
+        "merged": "/var/www/html/MEME_Generator_ios_v2/client/android/app/build/intermediates/res/merged/debug/drawable-xxhdpi-v4_abc_list_selector_disabled_holo_dark.9.png.flat",
+        "source": "/home/rao/.gradle/caches/transforms-1/files-1.1/appcompat-v7-28.0.0.aar/c0170fd72d169111b396d8ae2d5bffb8/res/drawable-xxhdpi-v4/abc_list_selector_disabled_holo_dark.9.png"
     },
     {
         "merged": "/var/www/html/MEME_Generator_ios_v2/client/android/app/build/intermediates/res/merged/debug/layout_abc_activity_chooser_view.xml.flat",

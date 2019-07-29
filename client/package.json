@@ -23,6 +23,7 @@
     "react-native-android-keyboard-adjust": "^1.2.0",
     "react-native-awesome-alerts": "^1.2.0",
     "react-native-btr": "^1.1.4",
+    "react-native-check-app-install": "^0.0.5",
     "react-native-color": "^0.0.10",
     "react-native-color-picker": "^0.4.1",
     "react-native-fs": "^2.13.3",

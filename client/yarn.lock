@@ -6472,6 +6472,11 @@ react-native-btr@^1.1.4:
     react-native-modal "^7.0.1"
     react-native-vector-icons "^6.1.0"
 
+react-native-check-app-install@^0.0.5:
+  version "0.0.5"
+  resolved "https://registry.yarnpkg.com/react-native-check-app-install/-/react-native-check-app-install-0.0.5.tgz#1cd5bff09a7d294af7acc88da627984654cb1b9c"
+  integrity sha512-nKUf0HcLbRGlOgSun4w2ftKZsabcwwff4GK//WwdoxG5wstqhWK1231+SKapjJY4GjoM2pI2Xv6ClTQV6e5cog==
+
 react-native-color-picker@^0.4.1:
   version "0.4.1"
   resolved "https://registry.yarnpkg.com/react-native-color-picker/-/react-native-color-picker-0.4.1.tgz#84617f259dbdb470651613bb81a85828c13d7e71"

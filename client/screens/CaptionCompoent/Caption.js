@@ -80,7 +80,26 @@ export class Caption extends Component {
       baseScaleText: [],
       pinchScaleText: [],
       scaleText: [],
-      lastScaleText: []
+      lastScaleText: [],
+
+      /** Bitmoji pan  */
+      onPanGestureEventBitmoji: [],
+      lastOffsetBitmoji: [],
+      translateXBitmoji: [],
+      translateYBitmoji: [],
+
+      /** Bitmoji rotate */
+      onRotateGestureEventBitmoji: [],
+      rotateBitmoji: [],
+      lastRotateBitmoji: [],
+      rotateStrBitmoji: [],
+
+      /** Bitmoji pinch */
+      onPinchGestureEventBitmoji: [],
+      baseScaleBitmoji: [],
+      pinchScaleBitmoji: [],
+      scaleBitmoji: [],
+      lastScaleBitmoji: []
     };
   }
 
@@ -111,6 +130,19 @@ export class Caption extends Component {
       { useNativeDriver: USE_NATIVE_DRIVER }
     );
 
+    // onPanGestureEvent  Bitmoji
+    this.state.onPanGestureEventBitmoji = Animated.event(
+      [
+        {
+          nativeEvent: {
+            translationX: this.translateX,
+            translationY: this.translateY
+          }
+        }
+      ],
+      { useNativeDriver: USE_NATIVE_DRIVER }
+    );
+
     // onRotateGestureEvent Stickers
     this.state.onRotateGestureEvent = Animated.event(
       [{ nativeEvent: { rotation: this.rotate } }],
@@ -119,6 +151,12 @@ export class Caption extends Component {
 
     // onRotateGestureEvent Text
     this.state.onRotateGestureEventText = Animated.event(
+      [{ nativeEvent: { rotation: this.rotate } }],
+      { useNativeDriver: USE_NATIVE_DRIVER }
+    );
+
+    // onRotateGestureEvent Bitmoji
+    this.state.onRotateGestureEventBitmoji = Animated.event(
       [{ nativeEvent: { rotation: this.rotate } }],
       { useNativeDriver: USE_NATIVE_DRIVER }
     );
@@ -134,6 +172,81 @@ export class Caption extends Component {
       [{ nativeEvent: { scale: this.pinchScale } }],
       { useNativeDriver: USE_NATIVE_DRIVER }
     );
+
+    // onPinchGestureEvent Bitmoji
+    this.state.onPinchGestureEventBitmoji = Animated.event(
+      [{ nativeEvent: { scale: this.pinchScale } }],
+      { useNativeDriver: USE_NATIVE_DRIVER }
+    );
+  };
+
+  /**
+   * @param {object} event Event object which contains event details
+   * @param {number} index which index of current element(Bitmoji)
+   * this function use for rotate Bitmoji
+   */
+  onRotateHandlerStateChangeBimoji = (event, index) => {
+    if (event.nativeEvent.oldState === State.ACTIVE) {
+      this.state.lastRotateBitmoji[index] += event.nativeEvent.rotation;
+      this.state.rotateBitmoji[index].setOffset(
+        this.state.lastRotateBitmoji[index]
+      );
+      this.state.rotateBitmoji[index].setValue(0);
+
+      this.state.rotateStrBitmoji[index] = this.state.rotateBitmoji[
+        index
+      ].interpolate({
+        inputRange: [-100, 100],
+        outputRange: ["-100rad", "100rad"]
+      });
+    }
+  };
+
+  /**
+   * @param {object} event Event object which contains event details
+   * @param {number} index which index of current element(Bitmoji)
+   * this function use for Pinch Bitmoji
+   */
+  onPinchHandlerStateChangeBitmoji = (event, index) => {
+    if (event.nativeEvent.oldState === State.ACTIVE) {
+      let lastScaleStateBitmoji = this.state.lastScaleBitmoji;
+      lastScaleStateBitmoji[index] *= event.nativeEvent.scale;
+      let baseScaleStateBitmoji = this.state.baseScaleBitmoji;
+      baseScaleStateBitmoji[index].setValue(lastScaleStateBitmoji[index]);
+      let scaleStateBitmoji = this.state.scaleBitmoji;
+
+      let pichScaleStateBitmoji = this.state.pinchScaleBitmoji;
+      scaleStateBitmoji[index] = Animated.multiply(
+        baseScaleStateBitmoji[index],
+        pichScaleStateBitmoji[index]
+      );
+
+      this.setState({
+        lastScaleBitmoji: lastScaleStateBitmoji,
+        baseScaleBitmoji: baseScaleStateBitmoji,
+        scaleBitmoji: scaleStateBitmoji
+      });
+    }
+  };
+
+  /**
+   * @param {object} event Event object which contains event details
+   * @param {number} index which index of current element(Bitmoji)
+   * this function use for Move Bitmoji
+   */
+  onPanStateChangeBitmoji = (event, index) => {
+    if (event.nativeEvent.oldState === State.ACTIVE) {
+      this.state.lastOffsetBitmoji[index].x += event.nativeEvent.translationX;
+      this.state.lastOffsetBitmoji[index].y += event.nativeEvent.translationY;
+      this.state.translateXBitmoji[index].setOffset(
+        this.state.lastOffsetBitmoji[index].x
+      );
+      this.state.translateXBitmoji[index].setValue(0);
+      this.state.translateYBitmoji[index].setOffset(
+        this.state.lastOffsetBitmoji[index].y
+      );
+      this.state.translateYBitmoji[index].setValue(0);
+    }
   };
 
   /**
@@ -314,6 +427,7 @@ export class Caption extends Component {
    * in componentWillReceiveProps set initial value for move, pinch and rotate (Text, Stickers)
    */
   componentWillReceiveProps = async props => {
+    console.log(">>>>>>>props=========", props.image);
     let data = []; // for text, color, font
     let stickerBitmoji = []; // for bitmoji stickers
     let stickerAndEmoji = []; //for stickers
@@ -323,8 +437,9 @@ export class Caption extends Component {
     let arrayrotatestrText = []; // for rotate text
     let arrayPinchText = []; // for pinch text
     let arraybaseText = []; // for pich text
-
-    const existingPanArrayImage = this.state.panArrayImage; //for bitmoji function
+    let arrayrotatestrBitmoji = []; // for rotate Bitmoji
+    let arrayPinchBitmoji = []; // for pinch Bitmoji
+    let arraybaseBitmoji = []; // for pich Bitmoji
 
     /** pan stickers */
     const existingPanArraySticker = this.state.lastOffset;
@@ -357,6 +472,22 @@ export class Caption extends Component {
     const pinchScaleText = this.state.pinchScaleText;
     const scaleText = this.state.scaleText;
     const lastScaleText = this.state.lastScaleText;
+
+    /** pan Bitmoji */
+    const existingPanArrayBitmoji = this.state.lastOffsetBitmoji;
+    const translateXBitmoji = this.state.translateXBitmoji;
+    const translateYBitmoji = this.state.translateYBitmoji;
+
+    /** rotate Bitmoji */
+    const rotateBitmoji = this.state.rotateBitmoji;
+    const lastRotateBitmoji = this.state.lastRotateBitmoji;
+    const rotateStrBitmoji = this.state.rotateStrBitmoji;
+
+    /** pinch Bitmoji */
+    const baseScaleBitmoji = this.state.baseScaleBitmoji;
+    const pinchScaleBitmoji = this.state.pinchScaleBitmoji;
+    const scaleBitmoji = this.state.scaleBitmoji;
+    const lastScaleBitmoji = this.state.lastScaleBitmoji;
 
     // if condition for text
     if (props.text && props.text.length) {
@@ -412,21 +543,62 @@ export class Caption extends Component {
         scaleText: scaleText
       });
     }
+       /** setState Bitmoji  */
+    // if condition for Bitmoji
+    if (props.image && props.image.length) {
+      // for rotate Bitmoji
+      rotateBitmoji.push(new Animated.Value(0));
+      lastRotateBitmoji.push(0);
+      // for pinch Bitmoji
+      pinchScaleBitmoji.push(new Animated.Value(1));
+      baseScaleBitmoji.push(new Animated.Value(1));
+      lastScaleBitmoji.push(1);
 
-    /** setState bitmoji stickers */
-    for (let i = 0; i < props.image.length; i++) {
-      stickerBitmoji.push({
-        image: props.image[i]
+      this.setState({
+        rotateBitmoji: rotateBitmoji,
+        lastRotateBitmoji: lastRotateBitmoji,
+        pinchScaleBitmoji: pinchScaleBitmoji,
+        baseScaleBitmoji: baseScaleBitmoji,
+        lastScaleBitmoji: lastScaleBitmoji
       });
-      existingPanArrayImage.push(
-        new Animated.ValueXY({ x: 0, y: this.props.offset })
-      );
-    }
+      /** setState bitmoji stickers */
+      for (let i = 0; i < props.image.length; i++) {
+        stickerBitmoji.push({
+          image: props.image[i]
+        });
+        arrayrotatestrBitmoji =  this.state.rotateBitmoji[i]; // for roatateStr
+        arrayPinchBitmoji = this.state.pinchScaleBitmoji[i]; // for scale (pinch)
+        arraybaseBitmoji = this.state.baseScaleBitmoji[i]; // for scale (pinch)
+      }
 
-    this.setState({
-      imageArray: stickerBitmoji,
-      panArrayImage: existingPanArrayImage
-    });
+      this.setState({
+        imageArray: stickerBitmoji
+      });
+      console.log(
+        "=====================================",
+        this.state.imageArray
+      );
+      scaleBitmoji.push(Animated.multiply(arraybaseBitmoji, arrayPinchBitmoji)); // set scale for pinch Bitmoji
+       rotateStrBitmoji.push(
+        arrayrotatestrBitmoji.interpolate({
+          inputRange: [-100, 100],
+          outputRange: ["-100rad", "100rad"]
+        })
+      );
+
+      // for move Bitmoji
+      translateXBitmoji.push(new Animated.Value(0));
+      translateYBitmoji.push(new Animated.Value(374.90909090909093)); // HEIGHT/2 => 374.90909090909093
+      existingPanArrayBitmoji.push({ x: 0, y: 374.90909090909093 });
+
+      this.setState({
+        translateXBitmoji: translateXBitmoji,
+        translateYBitmoji: translateYBitmoji,
+        lastOffsetBitmoji: existingPanArrayBitmoji,
+        rotateStrBitmoji: rotateStrBitmoji,
+        scaleBitmoji: scaleBitmoji
+      });
+    }
 
     /** setState stickers  */
     // Its for the rotating the emoji
@@ -487,14 +659,12 @@ export class Caption extends Component {
     this.setState({
       captionArray: [], // captionArray contains text, color and fonts
       panArrayImage: [], // bitmoji stickers
-      stickerArray: []
+      stickerArray: [],
+      imageArray:[]
     });
   }
 
   render() {
-    const AnimatedTouchable = Animated.createAnimatedComponent(
-      TouchableOpacity
-    );
     if (this.props.visible) {
       return (
         <View>
@@ -503,95 +673,93 @@ export class Caption extends Component {
           {/* <TouchableWithoutFeedback onPress = { () => this.onclickFunction()}> */}
           {this.state.captionArray.map((data, index) => (
             // <AnimatedTouchable onPress={index => this.onclickFunction(index)}>
-              <View
-                style={{
-                  width: "100%",
-                  justifyContent: "center",
-                  alignItems: "center",
-                  position: "absolute"
-                }}
+            <View
+              style={{
+                width: "100%",
+                justifyContent: "center",
+                alignItems: "center",
+                position: "absolute"
+              }}
+            >
+              {/* pan Text */}
+              <PanGestureHandler
+                key={index}
+                {...this.props}
+                onGestureEvent={this.state.onPanGestureEventText}
+                onHandlerStateChange={e => this.onPanStateChangeText(e, index)}
+                id={index + "imagedrag"}
+                simultaneousHandlers={[
+                  index + "imagepinch",
+                  index + "imagerotation"
+                ]}
+                shouldCancelWhenOutside={true}
               >
-                {/* pan Text */}
-                <PanGestureHandler
+                {/* Rotate Text */}
+                <RotationGestureHandler
                   key={index}
-                  {...this.props}
-                  onGestureEvent={this.state.onPanGestureEventText}
-                  onHandlerStateChange={e =>
-                    this.onPanStateChangeText(e, index)
-                  }
-                  id={index + "imagedrag"}
+                  id={index + "imagerotation"}
                   simultaneousHandlers={[
                     index + "imagepinch",
-                    index + "imagerotation"
+                    index + "imagedrag"
                   ]}
-                  shouldCancelWhenOutside={true}
+                  onGestureEvent={this.state.onRotateGestureEventText}
+                  onHandlerStateChange={e =>
+                    this.onRotateHandlerStateChangeText(e, index)
+                  }
                 >
-                  {/* Rotate Text */}
-                  <RotationGestureHandler
+                  {/* pinch Text */}
+                  <PinchGestureHandler
                     key={index}
-                    id={index + "imagerotation"}
+                    id={index + "imagepinch"}
                     simultaneousHandlers={[
-                      index + "imagepinch",
+                      index + "imagerotation",
                       index + "imagedrag"
                     ]}
-                    onGestureEvent={this.state.onRotateGestureEventText}
+                    onGestureEvent={this.state.onPinchGestureEventText}
                     onHandlerStateChange={e =>
-                      this.onRotateHandlerStateChangeText(e, index)
+                      this.onPinchHandlerStateChangeText(e, index)
                     }
                   >
-                    {/* pinch Text */}
-                    <PinchGestureHandler
+                    <Animated.View
                       key={index}
-                      id={index + "imagepinch"}
-                      simultaneousHandlers={[
-                        index + "imagerotation",
-                        index + "imagedrag"
+                      style={[
+                        styles.stickerContainer,
+                        this.props.style,
+                        {
+                          transform: [
+                            {
+                              translateX: this.state.translateXText[index]
+                            },
+                            { translateY: this.state.translateYText[index] }
+                          ]
+                        }
                       ]}
-                      onGestureEvent={this.state.onPinchGestureEventText}
-                      onHandlerStateChange={e =>
-                        this.onPinchHandlerStateChangeText(e, index)
-                      }
+                      collapsable={false}
                     >
-                      <Animated.View
+                      <Animated.Text
                         key={index}
                         style={[
-                          styles.stickerContainer,
-                          this.props.style,
+                          styles.text,
+                          {
+                            color: data.color,
+                            fontFamily: data.font
+                          },
                           {
                             transform: [
-                              {
-                                translateX: this.state.translateXText[index]
-                              },
-                              { translateY: this.state.translateYText[index] }
+                              { perspective: 200 },
+                              { scale: this.state.scaleText[index] },
+                              { rotate: this.state.rotateStrText[index] }
                             ]
                           }
                         ]}
-                        collapsable={false}
                       >
-                        <Animated.Text
-                          key={index}
-                          style={[
-                            styles.text,
-                            {
-                              color: data.color,
-                              fontFamily: data.font
-                            },
-                            {
-                              transform: [
-                                { perspective: 200 },
-                                { scale: this.state.scaleText[index] },
-                                { rotate: this.state.rotateStrText[index] }
-                              ]
-                            }
-                          ]}
-                        >
-                          {data.text}
-                        </Animated.Text>
-                      </Animated.View>
-                    </PinchGestureHandler>
-                  </RotationGestureHandler>
-                </PanGestureHandler>
-              </View>
+                        {data.text}
+                      </Animated.Text>
+                    </Animated.View>
+                  </PinchGestureHandler>
+                </RotationGestureHandler>
+              </PanGestureHandler>
+            </View>
             // </AnimatedTouchable>
           ))}
           {/* </TouchableWithoutFeedback>    */}
@@ -605,26 +773,79 @@ export class Caption extends Component {
                 position: "absolute"
               }}
             >
-              <Animated.View
+              {/* pan Bitmoji */}
+              <PanGestureHandler
                 key={index}
-                {...(this.props.lock
-                  ? null
-                  : this.getPanResponderImage(index).panHandlers)}
-                style={[
-                  this.props.style,
-                  styles.container,
-                  {
-                    transform: [
-                      { translateX: this.state.panArrayImage[index].x },
-                      { translateY: this.state.panArrayImage[index].y }
-                    ]
-                  }
+                {...this.props}
+                onGestureEvent={this.state.onPanGestureEventBitmoji}
+                onHandlerStateChange={e =>
+                  this.onPanStateChangeBitmoji(e, index)
+                }
+                id={index + "imageDrag"}
+                simultaneousHandlers={[
+                  index + "imagePinch",
+                  index + "imageRotation"
                 ]}
+                shouldCancelWhenOutside={true}
               >
-                <TouchableWithoutFeedback>
-                  <Image source={{ uri: data.image }} style={styles.preview} />
-                </TouchableWithoutFeedback>
-              </Animated.View>
+                {/* Rotate Bitmoji */}
+                <RotationGestureHandler
+                  key={index}
+                  onGestureEvent={this.state.onRotateGestureEventBitmoji}
+                  onHandlerStateChange={e =>
+                    this.onRotateHandlerStateChangeBimoji(e, index)
+                  }
+                  id={index + "imageRotation"}
+                  simultaneousHandlers={[
+                    index + "imagePinch",
+                    index + "imageDrag"
+                  ]}
+                >
+                  {/* pinch Bitmoji */}
+                  <PinchGestureHandler
+                    key={index}
+                    onGestureEvent={this.state.onPinchGestureEventBitmoji}
+                    onHandlerStateChange={e =>
+                      this.onPinchHandlerStateChangeBitmoji(e, index)
+                    }
+                    id={index + "imagePinch"}
+                    simultaneousHandlers={[
+                      index + "imageRotation",
+                      index + "imageDrag"
+                    ]}
+                  >
+                    <Animated.View
+                      key={index}
+                      style={[
+                        styles.stickerContainer,
+                        this.props.style,
+                        {
+                          transform: [
+                            { translateX: this.state.translateXBitmoji[index] },
+                            { translateY: this.state.translateYBitmoji[index] }
+                          ]
+                        }
+                      ]}
+                      collapsable={false}
+                    >
+                      <Animated.Image
+                        key={index}
+                        style={[
+                          styles.preview,
+                          {
+                            transform: [
+                              { perspective: 200 },
+                              { scale: this.state.scaleBitmoji[index] },
+                              { rotate: this.state.rotateStrBitmoji[index] }
+                            ]
+                          }
+                        ]}
+                        source={{ uri: data.image }}
+                      />
+                    </Animated.View>
+                  </PinchGestureHandler>
+                </RotationGestureHandler>
+              </PanGestureHandler>
             </View>
           ))}
           {/* get  stickers in  stickerArray*/}

@@ -1,5 +1,5 @@
 #Internal package file, do not edit.
-#Fri Jul 26 13:08:08 IST 2019
+#Mon Jul 29 10:53:35 IST 2019
 70.path=lib/arm64-v8a/libyoga.so
 78.base=/var/www/html/MEME_Generator_ios_v2/client/android/app/build/intermediates/transforms/mergeJniLibs/release/0
 84.path=lib/x86/libfb.so

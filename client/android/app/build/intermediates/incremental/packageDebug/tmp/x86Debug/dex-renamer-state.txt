@@ -1,4 +1,4 @@
-#Mon Jul 22 18:07:45 IST 2019
+#Mon Jul 29 12:02:54 IST 2019
 base.0=/var/www/html/MEME_Generator_ios_v2/client/android/app/build/intermediates/transforms/dexMerger/debug/0
 renamed.0=classes.dex
 path.0=classes.dex

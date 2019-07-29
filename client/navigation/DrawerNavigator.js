@@ -26,7 +26,6 @@ const DrawerNavigator =  createDrawerNavigator(
 		StickerShop: {
 			screen: StickerShop
 		},
-		
 		SavedImage: {
 			screen: SavedImage
 		},

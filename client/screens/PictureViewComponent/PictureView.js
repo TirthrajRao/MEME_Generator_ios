@@ -24,7 +24,6 @@ import RBSheet from "react-native-raw-bottom-sheet";
 import AddedStickers from "../addedStickerComponent/AddedStickers";
 import styles from "./pictureViewStyles";
 
-
 class PictureView extends Component {
   constructor(props) {
     super(props);
@@ -45,15 +44,14 @@ class PictureView extends Component {
       stickers: [],
       animation: new Animated.Value(0),
       stickersName: [],
-      visible: true,
-      
+      visible: true
     };
     this.child = React.createRef();
     this.caption = null;
     this.finishEditingCaption = this.finishEditingCaption.bind(this);
     this.stickersandemoji = this.stickersandemoji.bind(this);
     this.closeRBSheet = this.closeRBSheet.bind(this);
-    this.onCancel = this.onCancel.bind(this)
+    this.onCancel = this.onCancel.bind(this);
   }
 
   /** on click text open caption editor */
@@ -62,31 +60,28 @@ class PictureView extends Component {
     this.setState({
       cEditorEnabled: true,
       loopCount: this.state.loopCount + 1,
-      statusButton:false
+      statusButton: false
     });
     this.child.current.addTextInput(this.state.loopCount);
-  
   };
   /** for edit text */
   openCaptionEditorOnPress = () => {
     this.setState({ cEditorEnabled: true });
-
   };
   /** close caption editor */
-
   closeCaptionEditor = () => {
-    this.setState({ cEditorEnabled: false , statusButton:true });
+    this.setState({ cEditorEnabled: false, statusButton: true });
   };
 
   /**
-   * @param {array} text : onFinish text pass in caption screen 
-   * @param {array} color :  onFinish color pass in caption screen 
+   * @param {array} text : onFinish text pass in caption screen
+   * @param {array} color :  onFinish color pass in caption screen
    * @param {number} existingIndex : onFinish pass  index in caption screen
    * @param {array}  font : onFinish font pass in caption screen
-  */
+   */
 
   finishEditingCaption = (text, color, existingIndex, font) => {
-    this.setState({statusButton:true})
+    this.setState({ statusButton: true });
 
     this.closeCaptionEditor();
 
@@ -100,16 +95,15 @@ class PictureView extends Component {
       existingIndex: existingIndex,
       font: NewFont
     });
-
   };
-  /** 
+  /**
    * setState image from Add image screen and saved image screen
-   *  get image in paramas 
+   *  get image in paramas
    */
   componentDidMount = () => {
     this.setState({
-      images: this.props.navigation.state.params.image, // from AddImage screen 
-      savedImage: this.props.navigation.state.params.savedImage // from saved image screen 
+      images: this.props.navigation.state.params.image, // from AddImage screen
+      savedImage: this.props.navigation.state.params.savedImage // from saved image screen
     });
   };
 
@@ -145,13 +139,11 @@ class PictureView extends Component {
 
     RNFS.mkdir(absolutePath)
       .then(result => {
-
         if (Platform.OS === "android") {
           this.moveFile(uri);
-        }else{
+        } else {
           this.actualDownload(uri);
         }
-        
       })
       .catch(err => {
         console.warn("Error", err);
@@ -207,7 +199,7 @@ class PictureView extends Component {
         });
     } else {
       //let name = uri.split("/")[15]; // for emulator
-      let name = uri.split("/")[10];  // for device
+      let name = uri.split("/")[10]; // for device
       console.log("---------uri", name);
       let dirs = `${RNFS.DocumentDirectoryPath}/MEME_Generator/SavePictures`;
       const file_path = dirs + "/" + name;
@@ -224,7 +216,7 @@ class PictureView extends Component {
       });
     }
   };
-  /** 
+  /**
    *  @param {*} uri:sticker path, stickers function for bitmoji stickers
    */
   stickers = uri => {
@@ -233,37 +225,51 @@ class PictureView extends Component {
   };
 
   /**
-   *  @param {*} item: on click Emoji and show added stickers 
-  */
+   *  @param {*} item: on click Emoji and show added stickers
+   */
   stickersandemoji = item => {
     this.RBSheet.close();
     let existinSticker = this.state.stickersName;
     existinSticker.push(item);
     this.setState({ stickersName: existinSticker });
   };
-  /** 
-   * For colse RBSheet 
+  /**
+   * For colse RBSheet
    */
   closeRBSheet = () => {
     this.RBSheet.close();
   };
 
   /**                              on click cancle edited text, color, Font, Stickers removed */
-  onCancel = () => {
+  onCancel = async () => {
     console.log("call oncancle function ");
     this.setState({
       text: [],
       color: [],
-      font:[],
+      font: [],
       stickers: [],
-      stickersName: [],
+      stickersName: []
     });
-    this.caption.onCancel() // this function call in caption screen 
+    this.caption.onCancel(); // this function call in caption screen
     this.closeCaptionEditor();
     this.props.onCancel();
   };
-  link(){
-    Linking.openURL('https://play.google.com/store/apps/details?id=com.bitstrips.imoji&hl=en');
+  link() {
+    let dirs = `/storage/emulated/0/Android/data/com.bitstrips.imoji`;
+    // For download and remove icon
+    RNFS.readDir(dirs)
+      .then(allDownloadedCategory => {
+        console.log("============",allDownloadedCategory)
+       this._pickImage("image")
+      })
+      .catch(err => {
+        console.log("error-------------",err)
+        Linking.openURL(
+          "https://play.google.com/store/apps/details?id=com.bitstrips.imoji&hl=en"
+        );
+      });
+
+   
   }
 
   render() {
@@ -408,11 +414,7 @@ class PictureView extends Component {
               />
             )}
           </View>
-
-         
         </View>
-
-        
       );
     } else {
       return null;
@@ -461,9 +463,8 @@ PictureView.defaultProps = {
 
 export default PictureView;
 
-
-
-{/* <View style={styles.lasticon}>
+{
+  /* <View style={styles.lasticon}>
 <TouchableOpacity 
   style={styles.iconButton} 
   onPress={() => this.RBSheet.open()} >
@@ -489,4 +490,5 @@ customStyles={{
   }
 }}
 >
-</RBSheet> */}
+</RBSheet> */
+}

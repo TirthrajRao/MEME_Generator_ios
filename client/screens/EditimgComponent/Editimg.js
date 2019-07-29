@@ -395,10 +395,10 @@ export default class Editimg extends React.Component {
     });
   };
 
+
   render() {
     let len = this.state.text.length;
-    const { navigation } = this.props.onCancelText;
-    console.log("in render=====", this.state.text.length);
+  
 
     if (this.props.enabled) {
       return (
