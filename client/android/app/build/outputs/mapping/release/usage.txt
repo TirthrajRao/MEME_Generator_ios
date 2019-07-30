@@ -9915,6 +9915,23 @@ com.rnfs.RNFSPackage:
     22:22:public java.util.List createJSModules()
 com.rnfs.UploadParams:
     public java.lang.String name
+com.rpt.reactnativecheckpackageinstallation.BuildConfig
+com.rpt.reactnativecheckpackageinstallation.CheckPackageInstallationPackage:
+    17:17:public java.util.List createJSModules()
+com.rpt.reactnativecheckpackageinstallation.R
+com.rpt.reactnativecheckpackageinstallation.R$anim
+com.rpt.reactnativecheckpackageinstallation.R$attr
+com.rpt.reactnativecheckpackageinstallation.R$bool
+com.rpt.reactnativecheckpackageinstallation.R$color
+com.rpt.reactnativecheckpackageinstallation.R$dimen
+com.rpt.reactnativecheckpackageinstallation.R$drawable
+com.rpt.reactnativecheckpackageinstallation.R$id
+com.rpt.reactnativecheckpackageinstallation.R$integer
+com.rpt.reactnativecheckpackageinstallation.R$layout
+com.rpt.reactnativecheckpackageinstallation.R$string
+com.rpt.reactnativecheckpackageinstallation.R$style
+com.rpt.reactnativecheckpackageinstallation.R$styleable
+com.rpt.reactnativecheckpackageinstallation.R$xml
 com.snapchat.BuildConfig
 com.snapchat.R
 com.snapchat.R$anim

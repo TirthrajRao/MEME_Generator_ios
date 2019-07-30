@@ -38874,6 +38874,15 @@ com.rnfs.Uploader$1 -> com.rnfs.h$1:
     com.rnfs.Uploader this$0 -> a
     void <init>(com.rnfs.Uploader) -> <init>
     void run() -> run
+com.rpt.reactnativecheckpackageinstallation.CheckPackageInstallationModule -> com.rpt.reactnativecheckpackageinstallation.CheckPackageInstallationModule:
+    android.content.Context ctx -> ctx
+    void <init>(com.facebook.react.bridge.ReactApplicationContext) -> <init>
+    java.lang.String getName() -> getName
+    void isPackageInstalled(java.lang.String,com.facebook.react.bridge.Callback) -> isPackageInstalled
+com.rpt.reactnativecheckpackageinstallation.CheckPackageInstallationPackage -> com.rpt.reactnativecheckpackageinstallation.a:
+    void <init>() -> <init>
+    java.util.List createViewManagers(com.facebook.react.bridge.ReactApplicationContext) -> b
+    java.util.List createNativeModules(com.facebook.react.bridge.ReactApplicationContext) -> a
 com.snapchat.MainActivity -> com.snapchat.MainActivity:
     void <init>() -> <init>
     java.lang.String getMainComponentName() -> k

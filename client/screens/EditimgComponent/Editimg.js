@@ -17,7 +17,6 @@ import {
 import AndroidKeyboardAdjust from "react-native-android-keyboard-adjust";
 import PropTypes from "prop-types";
 import {
-  COLORS,
   FADEDBLACK,
   FADEDWHITE,
   FONTS

@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Dimensions, View, PanResponder, Animated, Image } from "react-native";
+import { Dimensions, View, Animated} from "react-native";
 import styles from "./captionStyles";
 import {
   PanGestureHandler,
@@ -10,15 +10,7 @@ import {
   TouchableOpacity
 } from "react-native-gesture-handler";
 import PropTypes from "prop-types";
-export const COLORS = [
-  "#ffffff",
-  "#000000",
-  "#ffee58",
-  "#4db6ac",
-  "#42a5f5",
-  "#ab47bc",
-  "#f44336"
-];
+
 export const FONTS = [
   "Barriecito-Regular",
   "MountainsofChristmas-Regular",
@@ -186,6 +178,7 @@ export class Caption extends Component {
    * this function use for rotate Bitmoji
    */
   onRotateHandlerStateChangeBimoji = (event, index) => {
+   
     if (event.nativeEvent.oldState === State.ACTIVE) {
       this.state.lastRotateBitmoji[index] += event.nativeEvent.rotation;
       this.state.rotateBitmoji[index].setOffset(
@@ -378,48 +371,6 @@ export class Caption extends Component {
     }
   };
 
-  /**
-   * @param {number} index which index of current element(Stickers)
-   * This function for Bitmoji Stickers
-   */
-  getPanResponderImage(index) {
-    console.log("call ", index);
-    return PanResponder.create({
-      onStartShouldSetPanResponder: () => true,
-      onMoveShouldSetResponderCapture: () => true,
-      onMoveShouldSetPanResponderCapture: () => true,
-      onPanResponderMove: Animated.event([
-        null,
-        {
-          dx: this.state.panArrayImage[index].x,
-          dy: this.state.panArrayImage[index].y
-        }
-      ]),
-      onPanResponderGrant: (e, gestureState) => {
-        const selectedPanArray = this.state.panArrayImage[index];
-        selectedPanArray.setOffset({
-          x: this.state.panArrayImage[index].x._value,
-          y: this.state.panArrayImage[index].y._value
-        });
-        selectedPanArray.setValue({
-          x: this.state.panArrayImage[index].x._value,
-          y: this.state.panArrayImage[index].y._value
-        });
-
-        const existingPanArray = this.state.panArrayImage;
-
-        existingPanArray[index] = selectedPanArray;
-
-        this.setState({
-          panArrayImage: existingPanArray
-        });
-      },
-
-      onPanResponderRelease: (e, { vx, vy }) => {
-        this.state.panArrayImage[index].flattenOffset();
-      }
-    });
-  }
 
   /**
    *  @param {*}  props :props from picture screen
@@ -427,7 +378,6 @@ export class Caption extends Component {
    * in componentWillReceiveProps set initial value for move, pinch and rotate (Text, Stickers)
    */
   componentWillReceiveProps = async props => {
-    console.log(">>>>>>>props=========", props.image);
     let data = []; // for text, color, font
     let stickerBitmoji = []; // for bitmoji stickers
     let stickerAndEmoji = []; //for stickers
@@ -467,7 +417,7 @@ export class Caption extends Component {
     const lastRotateText = this.state.lastRotateText;
     const rotateStrText = this.state.rotateStrText;
 
-    /** pinch stickers */
+    /** pinch text */
     const baseScaleText = this.state.baseScaleText;
     const pinchScaleText = this.state.pinchScaleText;
     const scaleText = this.state.scaleText;
@@ -488,6 +438,60 @@ export class Caption extends Component {
     const pinchScaleBitmoji = this.state.pinchScaleBitmoji;
     const scaleBitmoji = this.state.scaleBitmoji;
     const lastScaleBitmoji = this.state.lastScaleBitmoji;
+
+    /** setState Bitmoji  */
+    // if condition for Bitmoji
+    if (props.image && props.image.length) {
+      // for rotate Bitmoji
+      rotateBitmoji.push(new Animated.Value(0));
+      lastRotateBitmoji.push(0);
+      // for pinch Bitmoji
+      pinchScaleBitmoji.push(new Animated.Value(1));
+      baseScaleBitmoji.push(new Animated.Value(1));
+      lastScaleBitmoji.push(1);
+
+      this.setState({
+        rotateBitmoji: rotateBitmoji,
+        lastRotateBitmoji: lastRotateBitmoji,
+        pinchScaleBitmoji: pinchScaleBitmoji,
+        baseScaleBitmoji: baseScaleBitmoji,
+        lastScaleBitmoji: lastScaleBitmoji
+      });
+      /** setState bitmoji stickers */
+      for (let i = 0; i < props.image.length; i++) {
+        stickerBitmoji.push({
+          image: props.image[i]
+        });
+        arrayrotatestrBitmoji = this.state.rotateBitmoji[i]; // for roatateStr
+        arrayPinchBitmoji = this.state.pinchScaleBitmoji[i]; // for scale (pinch)
+        arraybaseBitmoji = this.state.baseScaleBitmoji[i]; // for scale (pinch)
+      }
+
+      this.setState({
+        imageArray: stickerBitmoji
+      });
+
+      scaleBitmoji.push(Animated.multiply(arraybaseBitmoji, arrayPinchBitmoji)); // set scale for pinch Bitmoji
+      rotateStrBitmoji.push(
+        arrayrotatestrBitmoji.interpolate({
+          inputRange: [-100, 100],
+          outputRange: ["-100rad", "100rad"]
+        })
+      );
+
+      // for move Bitmoji
+      translateXBitmoji.push(new Animated.Value(0));
+      translateYBitmoji.push(new Animated.Value(374.90909090909093)); // HEIGHT/2 => 374.90909090909093
+      existingPanArrayBitmoji.push({ x: 0, y: 374.90909090909093 });
+
+      this.setState({
+        translateXBitmoji: translateXBitmoji,
+        translateYBitmoji: translateYBitmoji,
+        lastOffsetBitmoji: existingPanArrayBitmoji,
+        rotateStrBitmoji: rotateStrBitmoji,
+        scaleBitmoji: scaleBitmoji
+      });
+    }
 
     // if condition for text
     if (props.text && props.text.length) {
@@ -541,62 +545,6 @@ export class Caption extends Component {
         lastOffsetText: existingPanArrayText,
         rotateStrText: rotateStrText,
         scaleText: scaleText
-      });
-    }
-       /** setState Bitmoji  */
-    // if condition for Bitmoji
-    if (props.image && props.image.length) {
-      // for rotate Bitmoji
-      rotateBitmoji.push(new Animated.Value(0));
-      lastRotateBitmoji.push(0);
-      // for pinch Bitmoji
-      pinchScaleBitmoji.push(new Animated.Value(1));
-      baseScaleBitmoji.push(new Animated.Value(1));
-      lastScaleBitmoji.push(1);
-
-      this.setState({
-        rotateBitmoji: rotateBitmoji,
-        lastRotateBitmoji: lastRotateBitmoji,
-        pinchScaleBitmoji: pinchScaleBitmoji,
-        baseScaleBitmoji: baseScaleBitmoji,
-        lastScaleBitmoji: lastScaleBitmoji
-      });
-      /** setState bitmoji stickers */
-      for (let i = 0; i < props.image.length; i++) {
-        stickerBitmoji.push({
-          image: props.image[i]
-        });
-        arrayrotatestrBitmoji =  this.state.rotateBitmoji[i]; // for roatateStr
-        arrayPinchBitmoji = this.state.pinchScaleBitmoji[i]; // for scale (pinch)
-        arraybaseBitmoji = this.state.baseScaleBitmoji[i]; // for scale (pinch)
-      }
-
-      this.setState({
-        imageArray: stickerBitmoji
-      });
-      console.log(
-        "=====================================",
-        this.state.imageArray
-      );
-      scaleBitmoji.push(Animated.multiply(arraybaseBitmoji, arrayPinchBitmoji)); // set scale for pinch Bitmoji
-       rotateStrBitmoji.push(
-        arrayrotatestrBitmoji.interpolate({
-          inputRange: [-100, 100],
-          outputRange: ["-100rad", "100rad"]
-        })
-      );
-
-      // for move Bitmoji
-      translateXBitmoji.push(new Animated.Value(0));
-      translateYBitmoji.push(new Animated.Value(374.90909090909093)); // HEIGHT/2 => 374.90909090909093
-      existingPanArrayBitmoji.push({ x: 0, y: 374.90909090909093 });
-
-      this.setState({
-        translateXBitmoji: translateXBitmoji,
-        translateYBitmoji: translateYBitmoji,
-        lastOffsetBitmoji: existingPanArrayBitmoji,
-        rotateStrBitmoji: rotateStrBitmoji,
-        scaleBitmoji: scaleBitmoji
       });
     }
 
@@ -660,7 +608,7 @@ export class Caption extends Component {
       captionArray: [], // captionArray contains text, color and fonts
       panArrayImage: [], // bitmoji stickers
       stickerArray: [],
-      imageArray:[]
+      imageArray: []
     });
   }
 

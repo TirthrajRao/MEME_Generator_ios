@@ -4,6 +4,7 @@ ADDED from /var/www/html/MEME_Generator_ios_v2/client/android/app/src/main/Andro
 INJECTED from /var/www/html/MEME_Generator_ios_v2/client/android/app/src/main/AndroidManifest.xml:1:1-44:12
 INJECTED from /var/www/html/MEME_Generator_ios_v2/client/android/app/src/main/AndroidManifest.xml:1:1-44:12
 INJECTED from /var/www/html/MEME_Generator_ios_v2/client/android/app/src/main/AndroidManifest.xml:1:1-44:12
+MERGED from [:react-native-check-app-install] /var/www/html/MEME_Generator_ios_v2/client/node_modules/react-native-check-app-install/android/build/intermediates/library_manifest/release/AndroidManifest.xml:2:1-11:12
 MERGED from [:react-native-share] /var/www/html/MEME_Generator_ios_v2/client/node_modules/react-native-share/android/build/intermediates/library_manifest/release/AndroidManifest.xml:2:1-28:12
 MERGED from [:rn-fetch-blob] /var/www/html/MEME_Generator_ios_v2/client/node_modules/rn-fetch-blob/android/build/intermediates/library_manifest/release/AndroidManifest.xml:2:1-47:12
 MERGED from [:react-native-view-shot] /var/www/html/MEME_Generator_ios_v2/client/node_modules/react-native-view-shot/android/build/intermediates/library_manifest/release/AndroidManifest.xml:2:1-11:12
@@ -168,6 +169,8 @@ uses-sdk
 INJECTED from /var/www/html/MEME_Generator_ios_v2/client/android/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from /var/www/html/MEME_Generator_ios_v2/client/android/app/src/main/AndroidManifest.xml
 INJECTED from /var/www/html/MEME_Generator_ios_v2/client/android/app/src/main/AndroidManifest.xml
+MERGED from [:react-native-check-app-install] /var/www/html/MEME_Generator_ios_v2/client/node_modules/react-native-check-app-install/android/build/intermediates/library_manifest/release/AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-check-app-install] /var/www/html/MEME_Generator_ios_v2/client/node_modules/react-native-check-app-install/android/build/intermediates/library_manifest/release/AndroidManifest.xml:7:5-9:41
 MERGED from [:react-native-share] /var/www/html/MEME_Generator_ios_v2/client/node_modules/react-native-share/android/build/intermediates/library_manifest/release/AndroidManifest.xml:8:5-10:41
 MERGED from [:react-native-share] /var/www/html/MEME_Generator_ios_v2/client/node_modules/react-native-share/android/build/intermediates/library_manifest/release/AndroidManifest.xml:8:5-10:41
 MERGED from [:rn-fetch-blob] /var/www/html/MEME_Generator_ios_v2/client/node_modules/rn-fetch-blob/android/build/intermediates/library_manifest/release/AndroidManifest.xml:7:5-9:41
