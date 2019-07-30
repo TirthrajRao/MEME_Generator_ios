@@ -17,6 +17,7 @@ import styles from "./stickershopStyles";
 import MenuButton from "../../components/MenuButton";
 import { Header } from "native-base";
 import Api from "../../service";
+import Toast from "react-native-simple-toast";
 
 export default class StickerShop extends React.Component {
 
@@ -183,7 +184,7 @@ export default class StickerShop extends React.Component {
               .fetch("GET", stickerName, {})
               .then(res => {
                 console.log("res.data============================", res.data);
-
+              
                 const existingCategories = this.state.categoryName;
 
                 for (let i = 0; i < existingCategories.length; i++) {
@@ -197,6 +198,7 @@ export default class StickerShop extends React.Component {
                 });
               });
           }
+          Toast.show('Downloading....', Toast.LONG)
         })
         .catch(err => {
           console.log("Internal server error", err);
@@ -256,10 +258,11 @@ export default class StickerShop extends React.Component {
             existingCategories[i].alreadyDownloaded = false;
           }
         }
-
+       
         this.setState({
           categoryName: existingCategories
         });
+        Toast.show('Remove Stickers');
       })
       .catch(err => {
         console.log("err", err);

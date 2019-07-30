@@ -14,6 +14,7 @@ import RNFS from "react-native-fs";
 import RNFetchBlob from "rn-fetch-blob";
 import styles from "./showStickersStyles";
 import Api from "../../service";
+import Toast from "react-native-simple-toast";
 
 export default class ShowStickers extends React.Component {
   constructor(props) {
@@ -64,12 +65,21 @@ export default class ShowStickers extends React.Component {
               backgroundColor: "#181123",
               borderRadius: 10,
               borderWidth: 1,
-              borderColor: "#fff",
-            
+              borderColor: "#fff"
             }}
             onPress={() => this.remove()}
           >
-            <Text style={{ color: "#fff", textAlign: "center" ,  padding:5, justifyContent:'center', alignContent:'center' }}>Remove</Text>
+            <Text
+              style={{
+                color: "#fff",
+                textAlign: "center",
+                padding: 5,
+                justifyContent: "center",
+                alignContent: "center"
+              }}
+            >
+              Remove
+            </Text>
           </TouchableOpacity>
         ) : (
           <TouchableOpacity
@@ -77,12 +87,19 @@ export default class ShowStickers extends React.Component {
               backgroundColor: "#181123",
               borderRadius: 10,
               borderWidth: 1,
-              borderColor: "#fff",
-             
+              borderColor: "#fff"
             }}
             onPress={() => this.download()}
           >
-            <Text style={{ color: "#fff", textAlign: "center", padding:5, justifyContent:'center', alignContent:'center' }}>
+            <Text
+              style={{
+                color: "#fff",
+                textAlign: "center",
+                padding: 5,
+                justifyContent: "center",
+                alignContent: "center"
+              }}
+            >
               Download
             </Text>
           </TouchableOpacity>
@@ -121,7 +138,7 @@ export default class ShowStickers extends React.Component {
             this.props.navigation.state.params.data
           }`;
 
-          console.log("==========",absolutePath)
+    console.log("==========", absolutePath);
 
     RNFS.mkdir(absolutePath)
       .then(result => {
@@ -164,6 +181,7 @@ export default class ShowStickers extends React.Component {
                 console.log("Error ", err);
               });
           }
+          Toast.show("Downloading....", Toast.LONG);
         })
         .catch(err => {
           console.log("Error:", err);
@@ -208,6 +226,7 @@ export default class ShowStickers extends React.Component {
       .then(() => {
         console.log("file is deleted");
         this.setState({ show: false });
+        Toast.show('Remove Stickers');
       })
       .catch(err => {
         console.log("err", err);
