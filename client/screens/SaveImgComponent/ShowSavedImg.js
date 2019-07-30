@@ -47,7 +47,7 @@ export default class ShowSavedImg extends React.Component {
 
   render() {
     let shareImageBase64 = {
-      title: "React Native",
+      title: "MEME Generator",
       url: "data:image/png;base64," + this.state.base64,
       subject: "Share Link" //  for email
     };
